@@ -1,0 +1,1280 @@
+[ 2016-06-16T17:27:06+08:00 ] 0.0.0.0 127.0.0.1 GET /tp5/public
+[ log ] localhost:8888/tp5/public [运行时间：0.012106s] [吞吐率：82.60req/s] [内存消耗：1,024.88kb] [文件加载：29]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'tp5',
+    1 => 'public',
+    2 => NULL,
+  ),
+)
+[ info ] [ LANG ] /Users/xiaojie/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/xiaojie/tp5/public/../runtime/log/',
+)
+
+[ 2016-06-16T17:27:16+08:00 ] 0.0.0.0 127.0.0.1 GET /public
+[ log ] localhost:8888/public [运行时间：0.009576s] [吞吐率：104.43req/s] [内存消耗：1,024.08kb] [文件加载：29]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'public',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ LANG ] /Users/xiaojie/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/xiaojie/tp5/public/../runtime/log/',
+)
+
+[ 2016-06-16T17:27:20+08:00 ] 0.0.0.0 127.0.0.1 GET /
+[ log ] localhost:8888/ [运行时间：0.006841s] [吞吐率：146.18req/s] [内存消耗：936.27kb] [文件加载：25]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ RUN ] /Users/xiaojie/tp5/application/index/controller/Index.php[ array (
+) ]
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/xiaojie/tp5/public/../runtime/log/',
+)
+
+[ 2016-06-16T17:32:33+08:00 ] 0.0.0.0 127.0.0.1 GET /
+[ log ] localhost:8888/ [运行时间：0.007320s] [吞吐率：136.61req/s] [内存消耗：936.27kb] [文件加载：25]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ RUN ] /Users/xiaojie/tp5/application/index/controller/Index.php[ array (
+) ]
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/xiaojie/tp5/public/../runtime/log/',
+)
+
+[ 2016-06-16T17:34:47+08:00 ] 0.0.0.0 127.0.0.1 GET /application
+[ log ] localhost:8888/application [运行时间：0.009261s] [吞吐率：107.98req/s] [内存消耗：1,024.13kb] [文件加载：29]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'application',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ LANG ] /Users/xiaojie/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/xiaojie/tp5/public/../runtime/log/',
+)
+
+[ 2016-06-16T17:35:13+08:00 ] 0.0.0.0 127.0.0.1 GET /application/index/controller/Index.php
+[ log ] localhost:8888/application/index/controller/Index.php [运行时间：0.006406s] [吞吐率：156.10req/s] [内存消耗：936.24kb] [文件加载：25]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ RUN ] /Users/xiaojie/tp5/application/index/controller/Index.php[ array (
+) ]
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/xiaojie/tp5/public/../runtime/log/',
+)
+
+[ 2016-06-16T17:35:31+08:00 ] 0.0.0.0 127.0.0.1 GET /application/index/controller/Index.php/index
+[ log ] localhost:8888/application/index/controller/Index.php/index [运行时间：0.006452s] [吞吐率：154.99req/s] [内存消耗：936.21kb] [文件加载：25]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ RUN ] /Users/xiaojie/tp5/application/index/controller/Index.php[ array (
+) ]
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/xiaojie/tp5/public/../runtime/log/',
+)
+
+[ 2016-06-16T17:36:37+08:00 ] 0.0.0.0 127.0.0.1 GET /application/index/controller/Index.php/hello
+[ log ] localhost:8888/application/index/controller/Index.php/hello [运行时间：0.008330s] [吞吐率：120.05req/s] [内存消耗：936.85kb] [文件加载：25]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ RUN ] /Users/xiaojie/tp5/application/index/controller/Index.php[ array (
+) ]
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/xiaojie/tp5/public/../runtime/log/',
+)
+
+[ 2016-06-16T17:36:50+08:00 ] 0.0.0.0 127.0.0.1 GET /application/index/controller/Index.php/Index/hello
+[ log ] localhost:8888/application/index/controller/Index.php/Index/hello [运行时间：0.007176s] [吞吐率：139.35req/s] [内存消耗：936.84kb] [文件加载：25]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ RUN ] /Users/xiaojie/tp5/application/index/controller/Index.php[ array (
+) ]
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/xiaojie/tp5/public/../runtime/log/',
+)
+
+[ 2016-06-16T17:37:04+08:00 ] 0.0.0.0 127.0.0.1 GET /application/index/controller/Index.php/Index/index
+[ log ] localhost:8888/application/index/controller/Index.php/Index/index [运行时间：0.008052s] [吞吐率：124.19req/s] [内存消耗：936.84kb] [文件加载：25]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ RUN ] /Users/xiaojie/tp5/application/index/controller/Index.php[ array (
+) ]
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/xiaojie/tp5/public/../runtime/log/',
+)
+
+[ 2016-06-16T17:37:09+08:00 ] 0.0.0.0 127.0.0.1 GET /application/index/controller/Index.php/Index/hello
+[ log ] localhost:8888/application/index/controller/Index.php/Index/hello [运行时间：0.006828s] [吞吐率：146.45req/s] [内存消耗：936.84kb] [文件加载：25]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ RUN ] /Users/xiaojie/tp5/application/index/controller/Index.php[ array (
+) ]
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/xiaojie/tp5/public/../runtime/log/',
+)
+
+[ 2016-06-16T17:37:11+08:00 ] 0.0.0.0 127.0.0.1 GET /application/index/controller/Index.php/Index/hello
+[ log ] localhost:8888/application/index/controller/Index.php/Index/hello [运行时间：0.007715s] [吞吐率：129.62req/s] [内存消耗：936.85kb] [文件加载：25]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ RUN ] /Users/xiaojie/tp5/application/index/controller/Index.php[ array (
+) ]
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/xiaojie/tp5/public/../runtime/log/',
+)
+
+[ 2016-06-16T17:37:21+08:00 ] 0.0.0.0 127.0.0.1 GET /application/index/controller/
+[ log ] localhost:8888/application/index/controller/ [运行时间：0.009027s] [吞吐率：110.78req/s] [内存消耗：1,024.23kb] [文件加载：29]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'application',
+    1 => 'index',
+    2 => 'controller',
+  ),
+)
+[ info ] [ LANG ] /Users/xiaojie/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/xiaojie/tp5/public/../runtime/log/',
+)
+
+[ 2016-06-16T17:37:29+08:00 ] 0.0.0.0 127.0.0.1 GET /application/index/controller/index
+[ log ] localhost:8888/application/index/controller/index [运行时间：0.008150s] [吞吐率：122.70req/s] [内存消耗：1,024.14kb] [文件加载：29]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'application',
+    1 => 'index',
+    2 => 'controller',
+  ),
+)
+[ info ] [ LANG ] /Users/xiaojie/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/xiaojie/tp5/public/../runtime/log/',
+)
+
+[ 2016-06-16T17:37:34+08:00 ] 0.0.0.0 127.0.0.1 GET /application/index/controller/Index
+[ log ] localhost:8888/application/index/controller/Index [运行时间：0.007486s] [吞吐率：133.58req/s] [内存消耗：1,024.14kb] [文件加载：29]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'application',
+    1 => 'index',
+    2 => 'controller',
+  ),
+)
+[ info ] [ LANG ] /Users/xiaojie/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/xiaojie/tp5/public/../runtime/log/',
+)
+
+[ 2016-06-16T17:37:40+08:00 ] 0.0.0.0 127.0.0.1 GET /application/index/controller/Index/hello
+[ log ] localhost:8888/application/index/controller/Index/hello [运行时间：0.007507s] [吞吐率：133.21req/s] [内存消耗：1,024.99kb] [文件加载：29]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'application',
+    1 => 'index',
+    2 => 'controller',
+  ),
+)
+[ info ] [ LANG ] /Users/xiaojie/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/xiaojie/tp5/public/../runtime/log/',
+)
+
+[ 2016-06-16T17:38:04+08:00 ] 0.0.0.0 127.0.0.1 GET /app/index/controller/Index/hello
+[ log ] localhost:8888/app/index/controller/Index/hello [运行时间：0.007758s] [吞吐率：128.90req/s] [内存消耗：1,024.88kb] [文件加载：29]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'app',
+    1 => 'index',
+    2 => 'controller',
+  ),
+)
+[ info ] [ LANG ] /Users/xiaojie/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/xiaojie/tp5/public/../runtime/log/',
+)
+
+[ 2016-06-16T17:38:11+08:00 ] 0.0.0.0 127.0.0.1 GET /application/index/controller/Index/hello
+[ log ] localhost:8888/application/index/controller/Index/hello [运行时间：0.008245s] [吞吐率：121.29req/s] [内存消耗：1,024.99kb] [文件加载：29]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'application',
+    1 => 'index',
+    2 => 'controller',
+  ),
+)
+[ info ] [ LANG ] /Users/xiaojie/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/xiaojie/tp5/public/../runtime/log/',
+)
+
+[ 2016-06-16T18:12:06+08:00 ] 0.0.0.0 127.0.0.1 GET /application/index/controller/Index/
+[ log ] localhost:8888/application/index/controller/Index/ [运行时间：0.010752s] [吞吐率：93.01req/s] [内存消耗：1,024.14kb] [文件加载：29]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'application',
+    1 => 'index',
+    2 => 'controller',
+  ),
+)
+[ info ] [ LANG ] /Users/xiaojie/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/xiaojie/tp5/public/../runtime/log/',
+)
+
+[ 2016-06-16T18:12:33+08:00 ] 0.0.0.0 127.0.0.1 GET /app/index/controller/Index/
+[ log ] localhost:8888/app/index/controller/Index/ [运行时间：0.008554s] [吞吐率：116.90req/s] [内存消耗：1,024.38kb] [文件加载：29]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'app',
+    1 => 'index',
+    2 => 'controller',
+  ),
+)
+[ info ] [ LANG ] /Users/xiaojie/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/xiaojie/tp5/public/../runtime/log/',
+)
+
+[ 2016-06-16T18:12:39+08:00 ] 0.0.0.0 127.0.0.1 GET /tp5/app/index/controller/Index/
+[ log ] localhost:8888/tp5/app/index/controller/Index/ [运行时间：0.007353s] [吞吐率：136.00req/s] [内存消耗：1,024.77kb] [文件加载：29]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'tp5',
+    1 => 'app',
+    2 => 'index',
+  ),
+)
+[ info ] [ LANG ] /Users/xiaojie/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/xiaojie/tp5/public/../runtime/log/',
+)
+
+[ 2016-06-16T18:13:26+08:00 ] 0.0.0.0 127.0.0.1 GET /public/app/index/controller/Index/
+[ log ] localhost:8888/public/app/index/controller/Index/ [运行时间：0.007492s] [吞吐率：133.47req/s] [内存消耗：1,025.03kb] [文件加载：29]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'public',
+    1 => 'app',
+    2 => 'index',
+  ),
+)
+[ info ] [ LANG ] /Users/xiaojie/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/xiaojie/tp5/public/../runtime/log/',
+)
+
+[ 2016-06-16T18:13:29+08:00 ] 0.0.0.0 127.0.0.1 GET /public
+[ log ] localhost:8888/public [运行时间：0.008332s] [吞吐率：120.02req/s] [内存消耗：1,024.08kb] [文件加载：29]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'public',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ LANG ] /Users/xiaojie/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/xiaojie/tp5/public/../runtime/log/',
+)
+
+[ 2016-06-16T18:13:35+08:00 ] 0.0.0.0 127.0.0.1 GET /
+[ log ] localhost:8888/ [运行时间：0.006720s] [吞吐率：148.81req/s] [内存消耗：936.80kb] [文件加载：25]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ RUN ] /Users/xiaojie/tp5/application/index/controller/Index.php[ array (
+) ]
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/xiaojie/tp5/public/../runtime/log/',
+)
+
+[ 2016-06-16T18:14:04+08:00 ] 0.0.0.0 127.0.0.1 GET /
+[ log ] localhost:8888/ [运行时间：0.014829s] [吞吐率：67.44req/s] [内存消耗：936.91kb] [文件加载：25]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ RUN ] /Users/xiaojie/tp5/application/index/controller/Index.php[ array (
+) ]
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/xiaojie/tp5/public/../runtime/log/',
+)
+
+[ 2016-06-16T18:15:42+08:00 ] 0.0.0.0 127.0.0.1 GET /index
+[ log ] localhost:8888/index [运行时间：0.006666s] [吞吐率：150.02req/s] [内存消耗：936.90kb] [文件加载：25]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ RUN ] /Users/xiaojie/tp5/application/index/controller/Index.php[ array (
+) ]
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/xiaojie/tp5/public/../runtime/log/',
+)
+
+[ 2016-06-16T18:15:45+08:00 ] 0.0.0.0 127.0.0.1 GET /index
+[ log ] localhost:8888/index [运行时间：0.006976s] [吞吐率：143.35req/s] [内存消耗：936.80kb] [文件加载：25]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ RUN ] /Users/xiaojie/tp5/application/index/controller/Index.php[ array (
+) ]
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/xiaojie/tp5/public/../runtime/log/',
+)
+
+[ 2016-06-16T18:15:50+08:00 ] 0.0.0.0 127.0.0.1 GET /hello
+[ log ] localhost:8888/hello [运行时间：0.007599s] [吞吐率：131.60req/s] [内存消耗：1,024.35kb] [文件加载：29]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'hello',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ LANG ] /Users/xiaojie/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/xiaojie/tp5/public/../runtime/log/',
+)
+
+[ 2016-06-16T18:15:56+08:00 ] 0.0.0.0 127.0.0.1 GET /index
+[ log ] localhost:8888/index [运行时间：0.007348s] [吞吐率：136.09req/s] [内存消耗：936.90kb] [文件加载：25]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ RUN ] /Users/xiaojie/tp5/application/index/controller/Index.php[ array (
+) ]
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/xiaojie/tp5/public/../runtime/log/',
+)
+
+[ 2016-06-16T18:16:04+08:00 ] 0.0.0.0 127.0.0.1 GET /index/hello
+[ log ] localhost:8888/index/hello [运行时间：0.009201s] [吞吐率：108.68req/s] [内存消耗：1,025.05kb] [文件加载：29]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'hello',
+    2 => NULL,
+  ),
+)
+[ info ] [ LANG ] /Users/xiaojie/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /Users/xiaojie/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/xiaojie/tp5/public/../runtime/log/',
+)
+[ error ] [0]类不存在 :app\index\controller\Hello[/Users/xiaojie/tp5/thinkphp/library/think/Loader.php:324]
+
+[ 2016-06-16T18:16:15+08:00 ] 0.0.0.0 127.0.0.1 GET /index/index
+[ log ] localhost:8888/index/index [运行时间：0.006382s] [吞吐率：156.69req/s] [内存消耗：936.88kb] [文件加载：25]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => NULL,
+  ),
+)
+[ info ] [ RUN ] /Users/xiaojie/tp5/application/index/controller/Index.php[ array (
+) ]
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/xiaojie/tp5/public/../runtime/log/',
+)
+
+[ 2016-06-16T18:16:19+08:00 ] 0.0.0.0 127.0.0.1 GET /index/hello
+[ log ] localhost:8888/index/hello [运行时间：0.007785s] [吞吐率：128.45req/s] [内存消耗：1,025.05kb] [文件加载：29]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'hello',
+    2 => NULL,
+  ),
+)
+[ info ] [ LANG ] /Users/xiaojie/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /Users/xiaojie/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/xiaojie/tp5/public/../runtime/log/',
+)
+[ error ] [0]类不存在 :app\index\controller\Hello[/Users/xiaojie/tp5/thinkphp/library/think/Loader.php:324]
+
+[ 2016-06-16T18:16:57+08:00 ] 0.0.0.0 127.0.0.1 GET /index/Index
+[ log ] localhost:8888/index/Index [运行时间：0.006099s] [吞吐率：163.96req/s] [内存消耗：936.88kb] [文件加载：25]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'Index',
+    2 => NULL,
+  ),
+)
+[ info ] [ RUN ] /Users/xiaojie/tp5/application/index/controller/Index.php[ array (
+) ]
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/xiaojie/tp5/public/../runtime/log/',
+)
+
+[ 2016-06-16T18:17:02+08:00 ] 0.0.0.0 127.0.0.1 GET /index/Index/index
+[ log ] localhost:8888/index/Index/index [运行时间：0.006321s] [吞吐率：158.20req/s] [内存消耗：936.84kb] [文件加载：25]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'Index',
+    2 => 'index',
+  ),
+)
+[ info ] [ RUN ] /Users/xiaojie/tp5/application/index/controller/Index.php[ array (
+) ]
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/xiaojie/tp5/public/../runtime/log/',
+)
+
+[ 2016-06-16T18:17:06+08:00 ] 0.0.0.0 127.0.0.1 GET /index/Index/hello
+[ log ] localhost:8888/index/Index/hello [运行时间：0.006959s] [吞吐率：143.70req/s] [内存消耗：936.84kb] [文件加载：25]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'Index',
+    2 => 'hello',
+  ),
+)
+[ info ] [ RUN ] /Users/xiaojie/tp5/application/index/controller/Index.php[ array (
+) ]
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/xiaojie/tp5/public/../runtime/log/',
+)
+
+[ 2016-06-16T18:18:33+08:00 ] 0.0.0.0 127.0.0.1 GET /index/Index/hello
+[ log ] localhost:8888/index/Index/hello [运行时间：0.010038s] [吞吐率：99.62req/s] [内存消耗：1,094.73kb] [文件加载：30]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'Index',
+    2 => 'hello',
+  ),
+)
+[ info ] [ RUN ] /Users/xiaojie/tp5/application/index/controller/Index.php[ array (
+) ]
+[ info ] [ LANG ] /Users/xiaojie/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /Users/xiaojie/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/xiaojie/tp5/public/../runtime/log/',
+)
+[ error ] [0]variable type error：array[/Users/xiaojie/tp5/thinkphp/library/think/Response.php:126]
+
+[ 2016-06-16T18:19:01+08:00 ] 0.0.0.0 127.0.0.1 GET /index/Index/hello
+[ log ] localhost:8888/index/Index/hello [运行时间：0.006783s] [吞吐率：147.43req/s] [内存消耗：937.54kb] [文件加载：25]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'Index',
+    2 => 'hello',
+  ),
+)
+[ info ] [ RUN ] /Users/xiaojie/tp5/application/index/controller/Index.php[ array (
+) ]
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/xiaojie/tp5/public/../runtime/log/',
+)
+
+[ 2016-06-16T18:19:48+08:00 ] 0.0.0.0 127.0.0.1 GET /index/Index/hello
+[ log ] localhost:8888/index/Index/hello [运行时间：0.008423s] [吞吐率：118.72req/s] [内存消耗：948.95kb] [文件加载：26]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'Index',
+    2 => 'hello',
+  ),
+)
+[ info ] [ RUN ] /Users/xiaojie/tp5/application/index/controller/Index.php[ array (
+) ]
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/xiaojie/tp5/public/../runtime/log/',
+)
+
+[ 2016-06-16T18:20:14+08:00 ] 0.0.0.0 127.0.0.1 GET /index/Index/hello
+[ log ] localhost:8888/index/Index/hello [运行时间：0.008093s] [吞吐率：123.56req/s] [内存消耗：949.16kb] [文件加载：26]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'Index',
+    2 => 'hello',
+  ),
+)
+[ info ] [ RUN ] /Users/xiaojie/tp5/application/index/controller/Index.php[ array (
+) ]
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/xiaojie/tp5/public/../runtime/log/',
+)
+
+[ 2016-06-16T18:37:55+08:00 ] 0.0.0.0 127.0.0.1 GET /index/Index/hello
+[ log ] localhost:8888/index/Index/hello [运行时间：0.007611s] [吞吐率：131.39req/s] [内存消耗：973.96kb] [文件加载：27]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'Index',
+    2 => 'hello',
+  ),
+)
+[ info ] [ RUN ] /Users/xiaojie/tp5/application/index/controller/Index.php[ array (
+) ]
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/xiaojie/tp5/public/../runtime/log/',
+)
+
+[ 2016-06-16T18:38:00+08:00 ] 0.0.0.0 127.0.0.1 GET /index/Index/hello
+[ log ] localhost:8888/index/Index/hello [运行时间：0.007057s] [吞吐率：141.70req/s] [内存消耗：973.96kb] [文件加载：27]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'Index',
+    2 => 'hello',
+  ),
+)
+[ info ] [ RUN ] /Users/xiaojie/tp5/application/index/controller/Index.php[ array (
+) ]
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/xiaojie/tp5/public/../runtime/log/',
+)
+
+[ 2016-06-16T18:38:18+08:00 ] 0.0.0.0 127.0.0.1 GET /index/Index/hello
+[ log ] localhost:8888/index/Index/hello [运行时间：0.008754s] [吞吐率：114.23req/s] [内存消耗：973.96kb] [文件加载：27]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'Index',
+    2 => 'hello',
+  ),
+)
+[ info ] [ RUN ] /Users/xiaojie/tp5/application/index/controller/Index.php[ array (
+) ]
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/xiaojie/tp5/public/../runtime/log/',
+)
+
+[ 2016-06-16T18:38:20+08:00 ] 0.0.0.0 127.0.0.1 GET /index/Index/hello
+[ log ] localhost:8888/index/Index/hello [运行时间：0.007353s] [吞吐率：136.00req/s] [内存消耗：973.96kb] [文件加载：27]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'Index',
+    2 => 'hello',
+  ),
+)
+[ info ] [ RUN ] /Users/xiaojie/tp5/application/index/controller/Index.php[ array (
+) ]
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/xiaojie/tp5/public/../runtime/log/',
+)
+
+[ 2016-06-16T18:39:35+08:00 ] 0.0.0.0 127.0.0.1 GET /index/Index/hello
+[ log ] localhost:8888/index/Index/hello [运行时间：0.007453s] [吞吐率：134.17req/s] [内存消耗：973.55kb] [文件加载：27]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'Index',
+    2 => 'hello',
+  ),
+)
+[ info ] [ RUN ] /Users/xiaojie/tp5/application/index/controller/Index.php[ array (
+) ]
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/xiaojie/tp5/public/../runtime/log/',
+)
+
+[ 2016-06-16T18:39:38+08:00 ] 0.0.0.0 127.0.0.1 GET /index/Index/hello
+[ log ] localhost:8888/index/Index/hello [运行时间：0.006924s] [吞吐率：144.42req/s] [内存消耗：973.55kb] [文件加载：27]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'Index',
+    2 => 'hello',
+  ),
+)
+[ info ] [ RUN ] /Users/xiaojie/tp5/application/index/controller/Index.php[ array (
+) ]
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/xiaojie/tp5/public/../runtime/log/',
+)
+
+[ 2016-06-16T18:40:26+08:00 ] 0.0.0.0 127.0.0.1 GET /index/Index/hello
+[ log ] localhost:8888/index/Index/hello [运行时间：0.012118s] [吞吐率：82.52req/s] [内存消耗：973.55kb] [文件加载：27]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'Index',
+    2 => 'hello',
+  ),
+)
+[ info ] [ RUN ] /Users/xiaojie/tp5/application/index/controller/Index.php[ array (
+) ]
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/xiaojie/tp5/public/../runtime/log/',
+)
+
+[ 2016-06-16T18:42:02+08:00 ] 0.0.0.0 127.0.0.1 GET /index/Index/hello
+[ log ] localhost:8888/index/Index/hello [运行时间：0.011900s] [吞吐率：84.03req/s] [内存消耗：975.43kb] [文件加载：27]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'Index',
+    2 => 'hello',
+  ),
+)
+[ info ] [ RUN ] /Users/xiaojie/tp5/application/index/controller/Index.php[ array (
+) ]
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/xiaojie/tp5/public/../runtime/log/',
+)
+
+[ 2016-06-16T18:43:19+08:00 ] 0.0.0.0 127.0.0.1 GET /index/Index/hello
+[ log ] localhost:8888/index/Index/hello [运行时间：0.020353s] [吞吐率：49.13req/s] [内存消耗：1,146.09kb] [文件加载：33]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'Index',
+    2 => 'hello',
+  ),
+)
+[ info ] [ RUN ] /Users/xiaojie/tp5/application/index/controller/Index.php[ array (
+) ]
+[ info ] [ LANG ] /Users/xiaojie/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /Users/xiaojie/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/xiaojie/tp5/public/../runtime/log/',
+)
+[ error ] [8]Array to string conversion[/Users/xiaojie/tp5/application/index/controller/Index.php:20]
+
+[ 2016-06-16T18:44:20+08:00 ] 0.0.0.0 127.0.0.1 GET /index/Index/hello
+[ log ] localhost:8888/index/Index/hello [运行时间：0.019517s] [吞吐率：51.24req/s] [内存消耗：1,145.39kb] [文件加载：33]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'Index',
+    2 => 'hello',
+  ),
+)
+[ info ] [ RUN ] /Users/xiaojie/tp5/application/index/controller/Index.php[ array (
+) ]
+[ info ] [ LANG ] /Users/xiaojie/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /Users/xiaojie/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/xiaojie/tp5/public/../runtime/log/',
+)
+[ error ] [8]Trying to get property of non-object[/Users/xiaojie/tp5/application/index/controller/Index.php:20]
+
+[ 2016-06-16T18:44:47+08:00 ] 0.0.0.0 127.0.0.1 GET /index/Index/hello
+[ log ] localhost:8888/index/Index/hello [运行时间：0.017261s] [吞吐率：57.93req/s] [内存消耗：1,147.38kb] [文件加载：33]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'Index',
+    2 => 'hello',
+  ),
+)
+[ info ] [ RUN ] /Users/xiaojie/tp5/application/index/controller/Index.php[ array (
+) ]
+[ info ] [ LANG ] /Users/xiaojie/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /Users/xiaojie/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/xiaojie/tp5/public/../runtime/log/',
+)
+[ error ] [8]Undefined property: think\Request::$a[/Users/xiaojie/tp5/application/index/controller/Index.php:21]
+
+[ 2016-06-16T18:44:57+08:00 ] 0.0.0.0 127.0.0.1 GET /index/Index/hello
+[ log ] localhost:8888/index/Index/hello [运行时间：0.017407s] [吞吐率：57.45req/s] [内存消耗：1,147.41kb] [文件加载：33]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'Index',
+    2 => 'hello',
+  ),
+)
+[ info ] [ RUN ] /Users/xiaojie/tp5/application/index/controller/Index.php[ array (
+) ]
+[ info ] [ LANG ] /Users/xiaojie/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /Users/xiaojie/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/xiaojie/tp5/public/../runtime/log/',
+)
+[ error ] [4096]Object of class think\Request could not be converted to string[/Users/xiaojie/tp5/application/index/controller/Index.php:21]
+
+[ 2016-06-16T18:45:44+08:00 ] 0.0.0.0 127.0.0.1 GET /index/Index/hello
+[ log ] localhost:8888/index/Index/hello [运行时间：0.012708s] [吞吐率：78.69req/s] [内存消耗：976.20kb] [文件加载：27]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'Index',
+    2 => 'hello',
+  ),
+)
+[ info ] [ RUN ] /Users/xiaojie/tp5/application/index/controller/Index.php[ array (
+) ]
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/xiaojie/tp5/public/../runtime/log/',
+)
+
+[ 2016-06-16T18:45:58+08:00 ] 0.0.0.0 127.0.0.1 GET /index/Index/hello?a=1
+[ log ] localhost:8888/index/Index/hello?a=1 [运行时间：0.010182s] [吞吐率：98.21req/s] [内存消耗：976.84kb] [文件加载：27]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'Index',
+    2 => 'hello',
+  ),
+)
+[ info ] [ RUN ] /Users/xiaojie/tp5/application/index/controller/Index.php[ array (
+) ]
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/xiaojie/tp5/public/../runtime/log/',
+)
+
+[ 2016-06-16T18:46:47+08:00 ] 0.0.0.0 127.0.0.1 GET /index/Index/hello?a=1&b=2
+[ log ] localhost:8888/index/Index/hello?a=1&b=2 [运行时间：0.013184s] [吞吐率：75.85req/s] [内存消耗：977.25kb] [文件加载：27]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'Index',
+    2 => 'hello',
+  ),
+)
+[ info ] [ RUN ] /Users/xiaojie/tp5/application/index/controller/Index.php[ array (
+) ]
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/xiaojie/tp5/public/../runtime/log/',
+)
+
+[ 2016-06-16T18:50:46+08:00 ] 0.0.0.0 127.0.0.1 GET /index/User/get?a=1&b=2
+[ log ] localhost:8888/index/User/get?a=1&b=2 [运行时间：0.012813s] [吞吐率：78.05req/s] [内存消耗：1,051.63kb] [文件加载：31]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'User',
+    2 => 'get',
+  ),
+)
+[ info ] [ LANG ] /Users/xiaojie/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /Users/xiaojie/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/xiaojie/tp5/public/../runtime/log/',
+)
+[ error ] [0]类不存在 :app\index\controller\User[/Users/xiaojie/tp5/thinkphp/library/think/Loader.php:324]
+
+[ 2016-06-16T18:51:04+08:00 ] 0.0.0.0 127.0.0.1 GET /index/User/
+[ log ] localhost:8888/index/User/ [运行时间：0.012865s] [吞吐率：77.73req/s] [内存消耗：1,050.86kb] [文件加载：31]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'User',
+    2 => NULL,
+  ),
+)
+[ info ] [ LANG ] /Users/xiaojie/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /Users/xiaojie/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/xiaojie/tp5/public/../runtime/log/',
+)
+[ error ] [0]类不存在 :app\index\controller\User[/Users/xiaojie/tp5/thinkphp/library/think/Loader.php:324]
+
+[ 2016-06-16T18:51:38+08:00 ] 0.0.0.0 127.0.0.1 GET /index/User/get
+[ log ] localhost:8888/index/User/get [运行时间：0.017807s] [吞吐率：56.16req/s] [内存消耗：1,154.16kb] [文件加载：34]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'User',
+    2 => 'get',
+  ),
+)
+[ info ] [ RUN ] /Users/xiaojie/tp5/application/index/controller/User.php[ array (
+) ]
+[ info ] [ LANG ] /Users/xiaojie/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /Users/xiaojie/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/xiaojie/tp5/public/../runtime/log/',
+)
+[ error ] [2]array_merge(): Argument #2 is not an array[/Users/xiaojie/tp5/thinkphp/library/think/Response.php:61]
+
+[ 2016-06-16T18:51:57+08:00 ] 0.0.0.0 127.0.0.1 GET /index/User/get?
+[ log ] localhost:8888/index/User/get? [运行时间：0.019734s] [吞吐率：50.67req/s] [内存消耗：1,154.23kb] [文件加载：34]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'User',
+    2 => 'get',
+  ),
+)
+[ info ] [ RUN ] /Users/xiaojie/tp5/application/index/controller/User.php[ array (
+) ]
+[ info ] [ LANG ] /Users/xiaojie/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /Users/xiaojie/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/xiaojie/tp5/public/../runtime/log/',
+)
+[ error ] [2]array_merge(): Argument #2 is not an array[/Users/xiaojie/tp5/thinkphp/library/think/Response.php:61]
+
+[ 2016-06-16T18:53:43+08:00 ] 0.0.0.0 127.0.0.1 GET /index/User/get?
+[ log ] localhost:8888/index/User/get? [运行时间：0.017743s] [吞吐率：56.36req/s] [内存消耗：1,154.84kb] [文件加载：34]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'User',
+    2 => 'get',
+  ),
+)
+[ info ] [ RUN ] /Users/xiaojie/tp5/application/index/controller/User.php[ array (
+) ]
+[ info ] [ LANG ] /Users/xiaojie/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /Users/xiaojie/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/xiaojie/tp5/public/../runtime/log/',
+)
+[ error ] [2]array_merge(): Argument #2 is not an array[/Users/xiaojie/tp5/thinkphp/library/think/Response.php:61]
+
+[ 2016-06-16T18:53:46+08:00 ] 0.0.0.0 127.0.0.1 GET /index/User/get
+[ log ] localhost:8888/index/User/get [运行时间：0.011126s] [吞吐率：89.88req/s] [内存消耗：1,154.66kb] [文件加载：34]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'User',
+    2 => 'get',
+  ),
+)
+[ info ] [ RUN ] /Users/xiaojie/tp5/application/index/controller/User.php[ array (
+) ]
+[ info ] [ LANG ] /Users/xiaojie/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /Users/xiaojie/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/xiaojie/tp5/public/../runtime/log/',
+)
+[ error ] [2]array_merge(): Argument #2 is not an array[/Users/xiaojie/tp5/thinkphp/library/think/Response.php:61]
+
+[ 2016-06-16T18:53:50+08:00 ] 0.0.0.0 127.0.0.1 GET /index/User/user
+[ log ] localhost:8888/index/User/user [运行时间：0.010154s] [吞吐率：98.48req/s] [内存消耗：1,119.20kb] [文件加载：31]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'User',
+    2 => 'user',
+  ),
+)
+[ info ] [ LANG ] /Users/xiaojie/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /Users/xiaojie/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/xiaojie/tp5/public/../runtime/log/',
+)
+[ error ] [0]error action :user[/Users/xiaojie/tp5/thinkphp/library/think/controller/Rest.php:82]
+
+[ 2016-06-16T18:53:59+08:00 ] 0.0.0.0 127.0.0.1 GET /index/User/User/get
+[ log ] localhost:8888/index/User/User/get [运行时间：0.015596s] [吞吐率：64.12req/s] [内存消耗：1,119.20kb] [文件加载：31]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'User',
+    2 => 'User',
+  ),
+)
+[ info ] [ LANG ] /Users/xiaojie/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /Users/xiaojie/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/xiaojie/tp5/public/../runtime/log/',
+)
+[ error ] [0]error action :user[/Users/xiaojie/tp5/thinkphp/library/think/controller/Rest.php:82]
+
+[ 2016-06-16T18:54:09+08:00 ] 0.0.0.0 127.0.0.1 GET /index/User/get
+[ log ] localhost:8888/index/User/get [运行时间：0.013842s] [吞吐率：72.24req/s] [内存消耗：1,154.66kb] [文件加载：34]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'User',
+    2 => 'get',
+  ),
+)
+[ info ] [ RUN ] /Users/xiaojie/tp5/application/index/controller/User.php[ array (
+) ]
+[ info ] [ LANG ] /Users/xiaojie/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /Users/xiaojie/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/xiaojie/tp5/public/../runtime/log/',
+)
+[ error ] [2]array_merge(): Argument #2 is not an array[/Users/xiaojie/tp5/thinkphp/library/think/Response.php:61]
+
+[ 2016-06-16T18:54:21+08:00 ] 0.0.0.0 127.0.0.1 GET /index/Index/hello
+[ log ] localhost:8888/index/Index/hello [运行时间：0.011479s] [吞吐率：87.11req/s] [内存消耗：976.55kb] [文件加载：27]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'Index',
+    2 => 'hello',
+  ),
+)
+[ info ] [ RUN ] /Users/xiaojie/tp5/application/index/controller/Index.php[ array (
+) ]
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/xiaojie/tp5/public/../runtime/log/',
+)
+
+[ 2016-06-16T18:55:18+08:00 ] 0.0.0.0 127.0.0.1 GET /index/User/get
+[ log ] localhost:8888/index/User/get [运行时间：0.011419s] [吞吐率：87.57req/s] [内存消耗：973.61kb] [文件加载：27]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'User',
+    2 => 'get',
+  ),
+)
+[ info ] [ RUN ] /Users/xiaojie/tp5/application/index/controller/User.php[ array (
+) ]
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/xiaojie/tp5/public/../runtime/log/',
+)
+
+[ 2016-06-16T18:55:32+08:00 ] 0.0.0.0 127.0.0.1 GET /index/User/get
+[ log ] localhost:8888/index/User/get [运行时间：0.011131s] [吞吐率：89.84req/s] [内存消耗：973.23kb] [文件加载：27]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'User',
+    2 => 'get',
+  ),
+)
+[ info ] [ RUN ] /Users/xiaojie/tp5/application/index/controller/User.php[ array (
+) ]
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/xiaojie/tp5/public/../runtime/log/',
+)
+
+[ 2016-06-16T19:01:25+08:00 ] 0.0.0.0 127.0.0.1 GET /index/User/get
+[ log ] localhost:8888/index/User/get [运行时间：0.012126s] [吞吐率：82.47req/s] [内存消耗：973.23kb] [文件加载：27]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'User',
+    2 => 'get',
+  ),
+)
+[ info ] [ RUN ] /Users/xiaojie/tp5/application/index/controller/User.php[ array (
+) ]
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/xiaojie/tp5/public/../runtime/log/',
+)
+
+[ 2016-06-16T19:01:28+08:00 ] 0.0.0.0 127.0.0.1 GET /index/User/get
+[ log ] localhost:8888/index/User/get [运行时间：0.010118s] [吞吐率：98.83req/s] [内存消耗：973.23kb] [文件加载：27]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'User',
+    2 => 'get',
+  ),
+)
+[ info ] [ RUN ] /Users/xiaojie/tp5/application/index/controller/User.php[ array (
+) ]
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/xiaojie/tp5/public/../runtime/log/',
+)
+
+[ 2016-06-16T19:01:31+08:00 ] 0.0.0.0 127.0.0.1 GET /index/User/get
+[ log ] localhost:8888/index/User/get [运行时间：0.010541s] [吞吐率：94.87req/s] [内存消耗：973.23kb] [文件加载：27]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'User',
+    2 => 'get',
+  ),
+)
+[ info ] [ RUN ] /Users/xiaojie/tp5/application/index/controller/User.php[ array (
+) ]
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/xiaojie/tp5/public/../runtime/log/',
+)
+
+[ 2016-06-16T19:03:33+08:00 ] 0.0.0.0 127.0.0.1 GET /api/User/get
+[ log ] localhost:8888/api/User/get [运行时间：0.013506s] [吞吐率：74.04req/s] [内存消耗：1,050.97kb] [文件加载：31]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'User',
+    2 => 'get',
+  ),
+)
+[ info ] [ LANG ] /Users/xiaojie/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /Users/xiaojie/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/xiaojie/tp5/public/../runtime/log/',
+)
+[ error ] [0]类不存在 :app\api\controller\User[/Users/xiaojie/tp5/thinkphp/library/think/Loader.php:324]
+
+[ 2016-06-16T19:03:54+08:00 ] 0.0.0.0 127.0.0.1 GET /index/User/get
+[ log ] localhost:8888/index/User/get [运行时间：0.010656s] [吞吐率：93.84req/s] [内存消耗：1,024.11kb] [文件加载：29]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'User',
+    2 => 'get',
+  ),
+)
+[ info ] [ LANG ] /Users/xiaojie/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/xiaojie/tp5/public/../runtime/log/',
+)
+
+[ 2016-06-16T19:04:00+08:00 ] 0.0.0.0 127.0.0.1 GET /api/User/get
+[ log ] localhost:8888/api/User/get [运行时间：0.011693s] [吞吐率：85.52req/s] [内存消耗：1,050.97kb] [文件加载：31]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'User',
+    2 => 'get',
+  ),
+)
+[ info ] [ LANG ] /Users/xiaojie/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /Users/xiaojie/tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/xiaojie/tp5/public/../runtime/log/',
+)
+[ error ] [0]类不存在 :app\api\controller\User[/Users/xiaojie/tp5/thinkphp/library/think/Loader.php:324]
+
+[ 2016-06-16T19:04:31+08:00 ] 0.0.0.0 127.0.0.1 GET /index/User/get
+[ log ] localhost:8888/index/User/get [运行时间：0.010407s] [吞吐率：96.09req/s] [内存消耗：973.19kb] [文件加载：27]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'User',
+    2 => 'get',
+  ),
+)
+[ info ] [ RUN ] /Users/xiaojie/tp5/application/index/controller/User.php[ array (
+) ]
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/xiaojie/tp5/public/../runtime/log/',
+)
+
+[ 2016-06-16T19:04:48+08:00 ] 0.0.0.0 127.0.0.1 GET /index/User/get
+[ log ] localhost:8888/index/User/get [运行时间：0.010039s] [吞吐率：99.61req/s] [内存消耗：973.23kb] [文件加载：27]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'User',
+    2 => 'get',
+  ),
+)
+[ info ] [ RUN ] /Users/xiaojie/tp5/application/index/controller/User.php[ array (
+) ]
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/xiaojie/tp5/public/../runtime/log/',
+)
+
