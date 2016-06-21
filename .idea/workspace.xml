@@ -56,6 +56,7 @@
         <option value="$PROJECT_DIR$/application/common.php" />
         <option value="$PROJECT_DIR$/application/database.php" />
         <option value="$PROJECT_DIR$/application/config.php" />
+        <option value="$PROJECT_DIR$/.idea/workspace.xml" />
       </list>
     </option>
   </component>
@@ -339,7 +340,7 @@
       <updated>1466144961922</updated>
       <workItem from="1466144963159" duration="1111000" />
       <workItem from="1466386293400" duration="5153000" />
-      <workItem from="1466473610164" duration="1204000" />
+      <workItem from="1466473610164" duration="1284000" />
     </task>
     <task id="LOCAL-00001" summary="json-&gt;html">
       <created>1466409692014</created>
@@ -369,11 +370,18 @@
       <option name="project" value="LOCAL" />
       <updated>1466474977307</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="single module">
+      <created>1466474999668</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1466474999668</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7468000" />
+    <option name="totallyTimeSpent" value="7548000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="4" y="23" width="1276" height="777" extended-state="0" />
