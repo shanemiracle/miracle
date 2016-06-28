@@ -85,10 +85,10 @@ class Order extends Rest
 </head>
 <body>
 <div class="weui_msg">
-			<div class="weui_icon_area"><i class=$icon." weui_icon_msg"></i></div>
+			<div class="weui_icon_area"><i class="weui_icon_success weui_icon_msg"></i></div>
 		    <div class="weui_text_area">
-		        <h2 class="weui_msg_title">$desc</h2>
-		        <p class="weui_msg_desc">$ticks</p>
+		        <h2 class="weui_msg_title">"支付成功"</h2>
+		        <p class="weui_msg_desc">"感谢使用,祝您出行愉快"</p>
 		    </div>
 		<div class="weui_opr_area">
 	        <p class="weui_btn_area">
