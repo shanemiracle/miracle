@@ -10,6 +10,7 @@ class User extends \think\controller\Rest
 {
     public function get()
     {
+
         $data = ['name'=>'xiaoj','age'=>'27','sex'=>'male'];
         return $this->response($data,'json',200);
     }
