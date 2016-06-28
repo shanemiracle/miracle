@@ -16,7 +16,7 @@ class Pay
         $endPos = input('get.endPos');
         $time = input('get.onTime');
         $seatNo = input('get.seatNo');
-        $price = input('get.price')."00";
+        $price = input('get.price').".00";
         $seatNum = input('get.seatNum');
         $orderNo = input('get.orderNo');
 
