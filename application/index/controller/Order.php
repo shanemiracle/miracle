@@ -71,7 +71,7 @@ class Order extends Rest
         $ticks = ($ret==1)?"感谢使用,祝您出行愉快":"很抱歉,您需要重新扫描二维码支付";
         return   '<html>
 <head>
-<link href="css/weui.min.css" rel="stylesheet" />
+<link href="icon/weui.min.css" rel="stylesheet" />
 <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8" />
 <title>支付结果</title>
 
