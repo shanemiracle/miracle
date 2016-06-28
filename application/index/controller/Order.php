@@ -21,9 +21,16 @@ class Order extends Rest
     public function status() {
         $order = input('get.orderNo');
         $result = Db::table("order")->where("orderno",$order)->select();
+        if( $result != null) {
+            $ret = ($result[0]['status']==1)?1:2;
+            $desc = ($ret==1)?"已支付":"未支付";
+        }
+        else {
+            $ret = 2;
+            $desc = "无此订单";
+        }
 //        print_r($result);
-        $ret = ($result[0]['status']==1)?1:2;
-        $desc = ($ret==1)?"已支付":"未支付";
+
 
         return $this->response(['orderNo'=>$order,'retCode'=>$ret,'desc'=>$desc],'json',200);
 
