@@ -73,7 +73,7 @@ class Order extends Rest
 
         $orderNo = md5(time());
         $seatNum = count($num);
-        $price = $seatNum*3;
+        $price = $seatNum*3.00;
 //        $codeUrl="www.xjmiracle.com/order/pay?startPos=$startPos&endPos=$endPos&onTime=$time&seatNo=$seatNo&orderNo=$orderNo&price=$price";
         $codeUrl="http://192.9.60.133:8080/soyea_busdemo/view/pay.html?startPos=$startPos&endPos=$endPos&onTime=$time&seatNum=$seatNum&orderNo=$orderNo&price=$price";
 
