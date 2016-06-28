@@ -20,16 +20,23 @@ class Order extends Rest
 
     public function status() {
         $order = input('get.orderNo');
-        $result = Db::table("order")->where("orderno",$order)->select();
-        if( $result != null) {
-            $ret = ($result[0]['status']==1)?1:2;
-            $desc = ($ret==1)?"已支付":"未支付";
+        if($order) {
+            $result = Db::table("order")->where("orderno",$order)->select();
+            if( $result != null) {
+                $ret = ($result[0]['status']==1)?1:2;
+                $desc = ($ret==1)?"已支付":"未支付";
+            }
+            else {
+                $ret = 2;
+                $desc = "无此订单";
+            }
         }
         else {
-            $ret = 2;
-            $desc = "无此订单";
+                $ret = 2;
+                $desc = "请输入订单号";
         }
-//        print_r($result);
+
+//       print_r($result);
 
 
         return $this->response(['orderNo'=>$order,'retCode'=>$ret,'desc'=>$desc],'json',200);
@@ -38,22 +45,51 @@ class Order extends Rest
 
     public function pay() {
         $order = input('get.orderNo');
-        if( 1 == Db::table("order")->update(['orderno'=>$order,'status'=>1]) )
-        {
-            $ret = 1;
-            $desc = "支付成功";
-        }
+        if( $order) {
+            if( 1 == Db::table("order")->update(['orderno'=>$order,'status'=>1]) )
+            {
+                $ret = 1;
+                $desc = "支付成功";
+            }
 //        $queryData = Db::table("order")->where("orderno",$order)->select();
 
-        else
-        {
-            $ret = 2;
-            $desc = "支付失败";
+            else
+            {
+                $ret = 2;
+                $desc = "支付失败";
+            }
         }
+        else {
+            $ret = 2;
+            $desc = "请输入订单号";
+        }
+
         $data = ["orderNo"=>$order,"retCode"=>$ret,"desc"=>$desc];
+        $icon = ($ret==1)?"weui_icon_success":"weui_icon_warn";
+//        return $this->response($data,"json",200);
 
-        return $this->response($data,"json",200);
+        $ticks = ($ret==1)?"感谢使用,祝您出行愉快":"很抱歉,您需要重新扫描二维码支付";
+        return   '<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8" />
+<title>支付结果</title>
 
+</head>
+<body>
+<div class="weui_msg">
+			<div class="weui_icon_area"><i class=$icon." weui_icon_msg"></i></div>
+		    <div class="weui_text_area">
+		        <h2 class="weui_msg_title">$desc</h2>
+		        <p class="weui_msg_desc">$ticks</p>
+		    </div>
+		<div class="weui_opr_area">
+	        <p class="weui_btn_area">
+	            <a href="javascript:;" class="weui_btn weui_btn_primary">关闭</a>
+	        </p>
+	    </div>
+</div>
+</body>
+</html>';
 
     }
 
