@@ -67,6 +67,7 @@ class Order extends Rest
         }
 
         $data = ["orderNo"=>$order,"retCode"=>$ret,"desc"=>$desc];
+        print_r($data);
         $icon = ($ret==1)?"weui_icon_success":"weui_icon_warn";
 //        return $this->response($data,"json",200);
 
