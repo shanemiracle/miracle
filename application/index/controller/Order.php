@@ -45,6 +45,8 @@ class Order extends Rest
 
     public function pay() {
         $order = input('get.orderNo');
+        $desc = '';
+        $ret = 0;
         if( $order) {
             if( 1 == Db::table("order")->update(['orderno'=>$order,'status'=>1]) )
             {
