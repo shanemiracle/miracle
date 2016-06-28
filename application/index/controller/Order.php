@@ -23,7 +23,7 @@ class Order extends Rest
         $result = Db::table("order")->where("orderno",$order)->select();
 //        print_r($result);
         $ret = ($result[0]['status']==1)?1:2;
-        $desc = ($ret==1)?"支付成功":"支付失败";
+        $desc = ($ret==1)?"已支付":"未支付";
 
         return $this->response(['orderNo'=>$order,'retCode'=>$ret,'desc'=>$desc],'json',200);
 
@@ -74,8 +74,8 @@ class Order extends Rest
         $orderNo = md5(time());
         $seatNum = count($num);
         $price = $seatNum*3.00;
-//        $codeUrl="www.xjmiracle.com/order/pay?startPos=$startPos&endPos=$endPos&onTime=$time&seatNo=$seatNo&orderNo=$orderNo&price=$price";
-        $codeUrl="http://192.9.60.133:8080/soyea_busdemo/view/pay.html?startPos=$startPos&endPos=$endPos&onTime=$time&seatNum=$seatNum&orderNo=$orderNo&price=$price";
+        $codeUrl="www.xjmiracle.com/order/pay?startPos=$startPos&endPos=$endPos&onTime=$time&seatNum=$seatNum&orderNo=$orderNo&price=$price";
+//        $codeUrl="http://192.9.60.133:8080/soyea_busdemo/view/pay.html?startPos=$startPos&endPos=$endPos&onTime=$time&seatNum=$seatNum&orderNo=$orderNo&price=$price";
 
 
         if ($retCode==1) {
