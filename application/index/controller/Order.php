@@ -53,7 +53,7 @@ class Order extends Rest
     public function add() {
         $startPos = input('get.startPos');
         $endPos = input('get.endPos');
-        $time = input('get.time');
+        $time = input('get.onTime');
         $seatNo = input('get.seatNo');
 
         $num = 0;
