@@ -24,7 +24,7 @@ class Car extends Rest
         if($carNo != null) {
             $ret = 1;
 
-            for ($i=0;$i<19;$i++) {
+            for ($i=0;$i<35;$i++) {
                 if( $i%3==0&&$i%2==0) {
                     $seatStatus = $seatStatus.($i+1)."|1,";
                 }

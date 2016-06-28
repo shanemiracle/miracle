@@ -68,7 +68,7 @@ class Order extends Rest
 
         $data = ["orderNo"=>$order,"retCode"=>$ret,"desc"=>$desc];
         print_r($data);
-        $icon = ($ret==1)?"weui_icon_success":"weui_icon_warn";
+        $icon = "\"".($ret==1)?"weui_icon_success":"weui_icon_warn";
 //        return $this->response($data,"json",200);
 
         $ticks = ($ret==1)?"感谢使用,祝您出行愉快":"很抱歉,您需要重新扫描二维码支付";
