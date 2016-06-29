@@ -27,10 +27,11 @@ class Car extends Rest
 
             if( $carInfo ) {
                 $timeEnd = $carInfo[0]['timeend'];
+                print $timeEnd;
                 $timeNow = Time();
-                $zero = array_fill(0,80,0);
+                print $timeNow;
                 if($timeNow>$timeEnd) {
-                   if(1== Db::table('car')->where('carNo',$carNo)->update(['seatstatus'=>$zero]) ) {
+                   if(1== Db::table('car')->where('carNo',$carNo)->update(['seatstatus'=>0]) ) {
                        $carInfo = Db::table('car')->where('carNo',$carNo)->select();
                    }
                 }
