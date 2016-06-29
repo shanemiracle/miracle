@@ -69,7 +69,7 @@ class Order extends Rest
                     $carNo = $result[0]['carno'];
 
                     if($carNo) {
-                        print "\ncarNo".$carNo;
+//                        print "carNo".$carNo;
                         $seatStatus = '';
                         $carInfo = Db::table('car')->where('carNo',$carNo)->select();
                         if ( $carInfo ) {
@@ -81,7 +81,7 @@ class Order extends Rest
                                 else {
                                     $ret = 2;
 
-                                    print "车票锁定";
+//                                    print "车票锁定";
                                     break;
                                 }
                             }
@@ -90,32 +90,32 @@ class Order extends Rest
                                 print $status;
                                 if( 1 != Db::table('car')->where('carNo',$carNo)->update(['seatstatus'=>$status]) ) {
                                     $ret = 2;
-                                    print "座位状态更新失败";
+//                                    print "座位状态更新失败";
                                 }
                             }
                         }
                         else {
                             $ret = 2;
-                            print $carInfo." 不存在 ";
+//                            print $carInfo." 不存在 ";
                         }
                     }
                     else{
                         $ret = 2;
-                        print "car not ";
+//                        print "car not ";
                     }
 
                 }
                 else
                 {
                     $ret = 2;
-                    print "time not ";
+//                    print "time not ";
                 }
 
 
             }
             else {
                 $ret = 2;
-                print "order not ";
+//                print "order not ";
             }
 
 
