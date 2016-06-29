@@ -36,7 +36,7 @@ class Car extends Rest
                        $carInfo = Db::table('car')->where('carNo',$carNo)->select();
                    }
                 }
-                print_r( $carInfo[0]);
+                echo phpinfo();
 
                 for ($i=0;$i<34;$i++) {
                     $seatStatus = $seatStatus.($i+1)."|".$statusSeat = $carInfo[0]['seatstatus'][$i].",";
