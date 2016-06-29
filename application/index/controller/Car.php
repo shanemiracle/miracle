@@ -14,6 +14,8 @@ use think\Db;
 
 class Car extends Rest
 {
+    public $timeDay = '2016-';
+
     public function index() {
 
     }
@@ -26,15 +28,17 @@ class Car extends Rest
 
 
             if( $carInfo ) {
+
+                $timeNow = date();
                 $timeEnd = $carInfo[0]['timeend'];
                 $timeNow = date('H:i:s');
 //                print $timeNow;
 
-                if($timeNow>$timeEnd) {
-                   if(1== Db::table('car')->where('carNo',$carNo)->update(['seatstatus'=>'00000000000000000000000000000000000000000000000000000000000000000000000000000000']) ) {
-                       $carInfo = Db::table('car')->where('carNo',$carNo)->select();
-                   }
-                }
+//                if($timeNow>$timeEnd) {
+//                   if(1== Db::table('car')->where('carNo',$carNo)->update(['seatstatus'=>'00000000000000000000000000000000000000000000000000000000000000000000000000000000']) ) {
+//                       $carInfo = Db::table('car')->where('carNo',$carNo)->select();
+//                   }
+//                }
 
                 for ($i=0;$i<34;$i++) {
                     $seatStatus = $seatStatus.($i+1)."|".$statusSeat = $carInfo[0]['seatstatus'][$i].",";
