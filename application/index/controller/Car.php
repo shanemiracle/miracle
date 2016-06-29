@@ -26,9 +26,9 @@ class Car extends Rest
 
             if( $carInfo ) {
                 for ($i=0;$i<34;$i++) {
-                    $seatStatus = $seatStatus.($i+1)."|".$carInfo['seatstatus'][$i].",";
+                    $seatStatus = $seatStatus.($i+1)."|".$carInfo[0]['seatstatus'][$i].",";
                 }
-                $seatStatus = $seatStatus."35|".$carInfo['seatstatus'][34];
+                $seatStatus = $seatStatus."35|".$carInfo[0]['seatstatus'][34];
                 $ret = 1;
             }
             else {
