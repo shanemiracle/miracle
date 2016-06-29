@@ -48,18 +48,75 @@ class Order extends Rest
         $desc = '';
         $ret = 0;
         if( $order) {
-            if( 1 == Db::table("order")->update(['orderno'=>$order,'status'=>1]) )
-            {
-                $ret = 1;
-                $desc = "支付成功";
+            $orderInfo = Db::table("order")->where('orderno',$order)->select();
+
+            if($orderInfo) {
+                $time = $orderInfo[0]['onTime'];
+
+                $timeArray = explode(" ",$time);
+                if( $timeArray != null ) {
+                    $timeBig = $timeArray[0];
+                    $timeSmall = $timeArray[1];
+                }
+
+                $seat = $orderInfo[0]['seatno'];
+                $allSeat = explode(",",$seat);
+
+
+
+                $result = Db::query("select carno from bus.car where (timestart>=$timeSmall and timeend <= $timeSmall)");
+                if($result) {
+                    $carNo = $result[0]['carno'];
+
+                    if($carNo) {
+                        $seatStatus = '';
+                        if($carNo != null) {
+                            $carInfo = Db::table('car')->where('carNo',$carNo)->select();
+                            $status = $carInfo['seatstatus'];
+                            for($i = 0; $i < count($allSeat);$i++) {
+                                if($status[$allSeat[$i]-1] == 0) {
+                                    $status[$allSeat[$i]-1] = 1;
+                                }
+                                else {
+                                    $ret = 2;
+
+                                    $desc = "支付失败";
+                                    break;
+                                }
+                            }
+
+                            if($ret != 2) {
+                                if( 1 != Db::table('car')->where('carNo',$carNo)->update(['seatstatus'=>$status]) ) {
+                                    $ret = 2;
+                                    $desc = "支付失败";
+                                }
+                            }
+
+
+                        }
+
+                    }
+
+                }
+
             }
+
+
+               if( $ret != 2) {
+                   if( 1 == Db::table("order")->update(['orderno'=>$order,'status'=>1]) )
+                   {
+                       $ret = 1;
+                       $desc = "支付成功";
+                   }
 //        $queryData = Db::table("order")->where("orderno",$order)->select();
 
-            else
-            {
-                $ret = 2;
-                $desc = "支付失败";
-            }
+                   else
+                   {
+                       $ret = 2;
+                       $desc = "支付失败";
+                   }
+               }
+
         }
         else {
             $ret = 2;
@@ -160,12 +217,14 @@ html{-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{line-height:1.
 
 
         if ($retCode==1) {
+
             $tableData = ['orderno'=>$orderNo,'status'=>0,'startpos'=>$startPos,'endpos'=>$endPos,'ontime'=>$time,'seatno'=>$seatNo,'seatnum'=>count($num),'price'=>$price];
             if( 1 != Db::table('order')->insert($tableData) ) {
                 $retCode = 2;
             }
 //            $tableData = Db::table("order")->where("orderNo","123")->select();
 //            $retCode = $tableData[0];
+
         }
 
         $more = ['retCode'=>$retCode,'orderNo'=>$orderNo,'price'=>$price,'codeUrl'=>$codeUrl];
