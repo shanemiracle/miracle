@@ -76,7 +76,7 @@ class Order extends Rest
                             $status = $carInfo['seatstatus'];
                             for($i = 0; $i < count($allSeat);$i++) {
                                 if($status[$allSeat[$i]-1] == 0) {
-                                    $status[$allSeat[$i]-1] = 1;
+                                    $status[$allSeat[$i]-1] = '1';
                                 }
                                 else {
                                     $ret = 2;
@@ -87,6 +87,7 @@ class Order extends Rest
                             }
 
                             if($ret != 2) {
+                                print $status;
                                 if( 1 != Db::table('car')->where('carNo',$carNo)->update(['seatstatus'=>$status]) ) {
                                     $ret = 2;
                                     $desc = "支付失败";
