@@ -28,7 +28,7 @@ class Car extends Rest
             if( $carInfo ) {
                 $timeEnd = $carInfo[0]['timeend'];
 
-                $timeNow = date('h:i:s');
+                $timeNow = gmdate('h:i:s');
                 print $timeNow;
 
                 if($timeNow>$timeEnd) {
