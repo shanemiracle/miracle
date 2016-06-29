@@ -75,6 +75,13 @@ class Order extends Rest
                         if ( $carInfo ) {
                             $status = $carInfo[0]['seatstatus'];
                             for($i = 0; $i < count($allSeat);$i++) {
+                                if ( $allSeat[$i] > 30 ) {
+                                    $ret = 2;
+
+//                                    print "车票锁定";
+                                    break;
+                                }
+
                                 if($status[$allSeat[$i]-1] == 0) {
                                     $status[$allSeat[$i]-1] = '1';
                                 }
