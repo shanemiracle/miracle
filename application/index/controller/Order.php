@@ -73,7 +73,7 @@ class Order extends Rest
                         $seatStatus = '';
                         $carInfo = Db::table('car')->where('carNo',$carNo)->select();
                         if ( $carInfo ) {
-                            $status = $carInfo['seatstatus'];
+                            $status = $carInfo[0]['seatstatus'];
                             for($i = 0; $i < count($allSeat);$i++) {
                                 if($status[$allSeat[$i]-1] == 0) {
                                     $status[$allSeat[$i]-1] = '1';
