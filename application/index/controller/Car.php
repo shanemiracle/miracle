@@ -29,6 +29,7 @@ class Car extends Rest
                 $timeEnd = $carInfo[0]['timeend'];
 
                 $timeNow = date('h:i:s');
+                print $timeNow;
 
                 if($timeNow>$timeEnd) {
                    if(1== Db::table('car')->where('carNo',$carNo)->update(['seatstatus'=>'00000000000000000000000000000000000000000000000000000000000000000000000000000000']) ) {
