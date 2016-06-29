@@ -51,7 +51,7 @@ class Order extends Rest
             $orderInfo = Db::table("order")->where('orderno',$order)->select();
 
             if($orderInfo) {
-                $time = $orderInfo[0]['onTime'];
+                $time = $orderInfo[0]['ontime'];
 
                 $timeArray = explode(" ",$time);
                 if( $timeArray != null ) {
