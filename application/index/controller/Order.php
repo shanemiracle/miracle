@@ -62,9 +62,10 @@ class Order extends Rest
                 $seat = $orderInfo[0]['seatno'];
                 $allSeat = explode(",",$seat);
 
+                $start = "'".$timeSmall."'";
+                $end = "'".$timeSmall."'";
 
-
-                $result = Db::query("select carno from bus.car where (timestart>=$timeSmall and timeend <= $timeSmall)");
+                $result = Db::query("select carno from bus.car where (timestart>= $start and timeend <= $end)");
                 if($result) {
                     $carNo = $result[0]['carno'];
 
