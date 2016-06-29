@@ -27,8 +27,7 @@ class Car extends Rest
 
             if( $carInfo ) {
                 $timeEnd = $carInfo[0]['timeend'];
-                date_default_timezone_set('PRC');
-                $timeNow = date('h:i:s');
+                $timeNow = date('H:i:s');
                 print $timeNow;
 
                 if($timeNow>$timeEnd) {
