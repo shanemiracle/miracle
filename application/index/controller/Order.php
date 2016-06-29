@@ -71,36 +71,46 @@ class Order extends Rest
 
                     if($carNo) {
                         $seatStatus = '';
-                        if($carNo != null) {
-                            $carInfo = Db::table('car')->where('carNo',$carNo)->select();
-                            $status = $carInfo['seatstatus'];
-                            for($i = 0; $i < count($allSeat);$i++) {
-                                if($status[$allSeat[$i]-1] == 0) {
-                                    $status[$allSeat[$i]-1] = '1';
-                                }
-                                else {
-                                    $ret = 2;
-
-                                    $desc = "支付失败";
-                                    break;
-                                }
+                        $carInfo = Db::table('car')->where('carNo',$carNo)->select();
+                        $status = $carInfo['seatstatus'];
+                        for($i = 0; $i < count($allSeat);$i++) {
+                            if($status[$allSeat[$i]-1] == 0) {
+                                $status[$allSeat[$i]-1] = '1';
                             }
+                            else {
+                                $ret = 2;
 
-                            if($ret != 2) {
-                                print $status;
-                                if( 1 != Db::table('car')->where('carNo',$carNo)->update(['seatstatus'=>$status]) ) {
-                                    $ret = 2;
-                                    $desc = "支付失败";
-                                }
+                                $desc = "支付失败";
+                                break;
                             }
+                        }
 
-
+                        if($ret != 2) {
+                            print $status;
+                            if( 1 != Db::table('car')->where('carNo',$carNo)->update(['seatstatus'=>$status]) ) {
+                                $ret = 2;
+                                $desc = "支付失败";
+                            }
                         }
 
                     }
+                    else{
+                        $ret = 2;
+                        print "car not ";
+                    }
 
                 }
+                else
+                {
+                    $ret = 2;
+                    print "time not ";
+                }
 
+
+            }
+            else {
+                $ret = 2;
+                print "order not ";
             }
 
 
