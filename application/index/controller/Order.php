@@ -81,7 +81,7 @@ class Order extends Rest
                                 else {
                                     $ret = 2;
 
-                                    $desc = "支付失败";
+                                    print "车票锁定";
                                     break;
                                 }
                             }
@@ -90,13 +90,13 @@ class Order extends Rest
                                 print $status;
                                 if( 1 != Db::table('car')->where('carNo',$carNo)->update(['seatstatus'=>$status]) ) {
                                     $ret = 2;
-                                    $desc = "支付失败";
+                                    print "座位状态更新失败";
                                 }
                             }
                         }
                         else {
                             $ret = 2;
-                            print "carInfo not ";
+                            print $carInfo." 不存在 ";
                         }
                     }
                     else{
