@@ -39,7 +39,9 @@ class Car extends Rest
 
                 for ($i=0;$i<34;$i++) {
                     $statusSeat = $carInfo[0]['seatstatus'][$i];
+                    print $statusSeat;
                     $statusSeat = intval($statusSeat);
+                    print $statusSeat;
                     $seatStatus = $seatStatus.($i+1)."|".$statusSeat.",";
                 }
                 $statusSeat = $carInfo[0]['seatstatus'][34];
