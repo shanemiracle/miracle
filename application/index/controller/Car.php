@@ -50,16 +50,16 @@ class Car extends Rest
 //                $timeNow = date('H:i:s');
 //                print $timeNow;
 
-                if($timeNow != getTimeDay()) {
-
-                   if(1== Db::table('car')->where('carNo',$carNo)->update(['seatstatus'=>'00000000000000000000000000000000000000000000000000000000000000000000000000000000']) ) {
-                       $carInfo = Db::table('car')->where('carNo',$carNo)->select();
-                       $this->setTimeDay($timeNow);
-                   }
-                    else {
-                        $ret = 2;
-                    }
-                }
+//                if($timeNow != getTimeDay()) {
+//
+//                   if(1== Db::table('car')->where('carNo',$carNo)->update(['seatstatus'=>'00000000000000000000000000000000000000000000000000000000000000000000000000000000']) ) {
+//                       $carInfo = Db::table('car')->where('carNo',$carNo)->select();
+//                       $this->setTimeDay($timeNow);
+//                   }
+//                    else {
+//                        $ret = 2;
+//                    }
+//                }
 
                 if ( $ret != 2 ) {
                     for ($i=0;$i<34;$i++) {
