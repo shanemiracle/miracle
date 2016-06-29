@@ -39,6 +39,7 @@ class Car extends Rest
     public function status() {
         $carNo = input('get.carSeqNo');
         $seatStatus = '';
+        $ret = 0;
         if($carNo != null) {
             $carInfo = Db::table('car')->where('carNo',$carNo)->select();
 
