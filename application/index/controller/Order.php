@@ -154,7 +154,7 @@ html{-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{line-height:1.
         $orderNo = md5(time());
         $seatNum = count($num);
         $price = $seatNum*3;
-        $codeUrl="www.xjmiracle.com/pay?startPos=$startPos&endPos=$endPos&onTime=$time&seatNum=$seatNum&orderNo=$orderNo&price=$price";
+        $codeUrl="http://www.xjmiracle.com/pay?startPos=$startPos&endPos=$endPos&onTime=$time&seatNum=$seatNum&orderNo=$orderNo&price=$price";
 //        $codeUrl="http://192.9.60.133:8080/soyea_busdemo/view/pay.html?startPos=$startPos&endPos=$endPos&onTime=$time&seatNum=$seatNum&orderNo=$orderNo&price=$price";
 
 
