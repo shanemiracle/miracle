@@ -150,11 +150,17 @@ return [
 
     'log'                    => [
         // 日志记录方式，支持 file socket trace sae
-        'type' => 'File',
+//        'type' => 'File',
         // 日志保存目录
-        'path' => LOG_PATH,
+//        'path' => LOG_PATH,
+//        'type'=>'trace',//
+//        "trace_file"=>THINK_PATH.'tpl/page_trace.tpl',
+        'type'=>'socket',
+        'host'=>'127.0.0.1',
+        'force_client_ids'=>[],
+        'allow_client_ids'=>['xiaoj'],
     ],
-
+//
     // +----------------------------------------------------------------------
     // | 缓存设置
     // +----------------------------------------------------------------------
