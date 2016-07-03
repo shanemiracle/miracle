@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8" />
+    <title>支付页面</title>
+    <link rel="stylesheet" type="text/css"  href="/css/weui.min.css"  />
+
+    <style type="text/css">
+        #header {
+            position: absolute;
+            z-index: 2;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 45px;
+            line-height: 45px;
+            background: #000000;
+            padding: 0;
+            color: #eee;
+            font-size: 20px;
+            text-align: center;
+            font-weight: bold;
+        }
+        #footer {
+            position: absolute;
+            z-index: 2;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 48px;
+            padding: 0;
+        }
+        .weui_btn{
+            background: #ff5b00;
+            margin-left:10px;
+            margin-right:10px;
+        }
+        .bd{
+            position: relative;
+            top: 45px;
+        }
+    </style>
+
+</head>
+<body>
+
+<div id="header">确认订单</div>
+
+<div class="bd">
+    <div class="weui_cells_title"><font color="#000000" size="4px">{$ontime}</font></div>
+    <div class="weui_cells">
+        <div class="weui_cell" style="border-top:none">
+            <div class="weui_cell_hd"><img src="/icon/icon_departure.9.png" alt="" style="width:12px;margin-right:5px;display:block"></div>
+            <div class="weui_cell_bd weui_cell_primary">
+                <p>{$startpos}<font color="#ff9c00" size="2px">-始发</font></p>
+                <p>{$endpos}</p>
+            </div>
+            <div class="weui_cell_ft"><img src="/icon/icon_line_card_logo.png" alt="" style="width:20px;margin-right:10px;display:block"></div>
+        </div>
+    </div>
+
+    <div class="weui_cells_title">购票详情</div>
+    <div class="weui_cells">
+        <div class="weui_cell">
+            <div class="weui_cell_bd weui_cell_primary">
+                <p>出行日期</p>
+            </div>
+            <div class="weui_cell_ft">{$ondate}</div>
+        </div>
+        <div class="weui_cell">
+            <div class="weui_cell_bd weui_cell_primary">
+                <p>票价</p>
+            </div>
+            <div class="weui_cell_ft"><font color="#ff9c00">3.00元</font></div>
+        </div>
+        <div class="weui_cell">
+            <div class="weui_cell_bd weui_cell_primary">
+                <p>座位号</p>
+            </div>
+            <div class="weui_cell_ft">{$seatno}</div>
+        </div>
+        <div class="weui_cell">
+            <div class="weui_cell_bd weui_cell_primary">
+                <p>数量</p>
+            </div>
+            <div class="weui_cell_ft">{$seatnum}</div>
+        </div>
+    </div>
+
+    <div class="weui_cells_title">支付方式</div>
+    <div class="weui_cells">
+        <div class="weui_cell">
+            <div class="weui_cell_hd"><img src="/icon/icon_alipay.png" alt="" style="width:30px;margin-right:10px;display:block"></div>
+            <div class="weui_cell_bd weui_cell_primary">
+                <p>支付宝支付</p>
+            </div>
+            <div class="weui_cell_ft"><img src="/icon/icon_pay_selection.png" alt="" style="width:30px;margin-right:10px;display:block"></div>
+        </div>
+        <div class="weui_cell">
+            <div class="weui_cell_hd"><img src="/icon/icon_wechat.png" alt="" style="width:30px;margin-right:10px;display:block"></div>
+            <div class="weui_cell_bd weui_cell_primary">
+                <p>微信支付</p>
+            </div>
+            <div class="weui_cell_ft"><img src="/icon/icon_pay_no_selection.png" alt="" style="width:30px;margin-right:10px;display:block"></div>
+        </div>
+    </div>
+</div>
+<div id="footer">
+    <a href="{$url}/order/pay?orderNo={$orderno}" class="weui_btn">确认支付<span id="total_price">{$price}.00</span>元</a>
+</div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<!--<link href="../../../../public/css/weui.min.css" rel="stylesheet" />-->
+
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8" />
+
+    <title>支付结果</title>
+
+    <link href="/css/weui.min.css" rel="stylesheet" />
+
+</head>
+<body>
+
+<div class="weui_msg">
+    <?php if($result==0) { ?>
+            <div class="weui_icon_area"><i class="weui_icon_success weui_icon_msg"></i></div>
+            <div class="weui_text_area">
+                <h2 class="weui_msg_title">{$desc}</h2>
+                <p class="weui_msg_desc">感谢使用，祝您出行愉快！</p>
+            </div>
+    <?php }else{ ?>
+            <div class="weui_icon_area"><i class="weui_icon_warn weui_icon_msg"></i></div>
+            <div class="weui_text_area">
+                <h2 class="weui_msg_title">{$desc}</h2>
+                <p class="weui_msg_desc">很抱歉，您需要重新扫面二维码！</p>
+            </div>
+    <?php } ?>
+    <div class="weui_opr_area">
+        <p class="weui_btn_area">
+            <a href="javascript:;" class="weui_btn weui_btn_primary">关闭</a>
+        </p>
+    </div>
+</div>
+
+
+
+</body>
+</html>
