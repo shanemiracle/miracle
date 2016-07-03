@@ -9,9 +9,11 @@
 namespace app\index\controller;
 
 
+use app\index\table\table;
 use app\index\table\tableCar;
 use app\index\table\tableSchedule;
 use app\index\table\tableSeatOrderStatus;
+use app\index\table\tableSeatRealStatus;
 use think\controller\Rest;
 use think\Validate;
 
@@ -264,7 +266,12 @@ class Car extends Rest
 
 
         $car = new tableCar();
-        $car->find($carno);
+        $ret = $car->find($carno);
+        if ( 0 != $ret ) {
+            $this->setDesc("carno $carno 不存在");
+            return 3;
+        }
+
 
         $tableSchedule = new tableSchedule();
         if( 0 != $tableSchedule->findByCarTime($carno,$onTime) ) {
@@ -313,7 +320,164 @@ class Car extends Rest
 
 
 
+    private function subRealStatus() {
+        switch($this->_method) {
+            case 'post':
+                $carno = input('post.carno');
+                break;
+
+            case 'get':
+                $carno = input('get.carno');
+                break;
+
+            default:
+                $this->setDesc("请求方法 $this->_method 不支持");
+                return 1;
+        }
+
+        if($carno==null) {
+            $this->setDesc("carno 不能为空");
+            return 2;
+        }
+
+        $car = new tableCar();
+        if ( 0 != $car->find($carno) ) {
+            $this->setDesc("carNo $carno 不存在");
+            return 3;
+        }
+        
+        $tableReal = new tableSeatRealStatus();
+
+        $allRealStatus = '';
+        for ( $i = 1; $i <= $car->getSeatnum(); $i++) {
+            if ( 0 != $tableReal->queryByCarSeat($carno, $i) ) {
+                $this->setDesc("carNo $carno 座位 $i 状态查询异常");
+                return 3;
+            }
+            else {
+                if( $i != $car->getSeatnum() ) {
+                    $allRealStatus = $allRealStatus.$i.'|'.$tableReal->getStatus().',';
+                }
+                else {
+                    $allRealStatus = $allRealStatus.$i.'|'.$tableReal->getStatus();
+                }
+            }
+        }
+        $this->setResponseData(['carno'=>$carno,'realStatus'=>$allRealStatus]);
+
+        $this->setDesc("获取成功");
+        return 0;
+
+    }
+
+    
     public function realStatus() {
+
+        $ret = $this->subRealStatus();
+
+        $retDesc = ['retCode'=>$ret,'desc'=>$this->getDesc()];
+
+        $data = array_merge($retDesc,$this->getResponseData());
+
+        return $this->response($data,'json',200);
+
+    }
+
+
+    private function subRealStatusUpdate() {
+        switch($this->_method) {
+            case 'post':
+                $carno = input('post.carno');
+                $status = input('post.status');
+                break;
+
+            case 'get':
+                $carno = input('get.carno');
+                $status = input('get.status');
+                break;
+
+            default:
+                $this->setDesc("请求方法 $this->_method 不支持");
+                return 1;
+        }
+
+        if($carno==null||$status==null) {
+            $this->setDesc("carno status 都不能为空,参考格式:http://www.xjmiracle.com/car/realStatusUpdate?carno=13&status=1|1,2|0");
+            return 2;
+        }
+
+        $statusMul = explode(",",$status);
+        if( $statusMul == null || count($statusMul) == 0) {
+            $this->setDesc("要修改的座位数不能为0 格式如:1|0,2|0,3|1,...");
+            return 2;
+        }
+
+        $car = new tableCar();
+        if ( 0 != $car->find($carno) ) {
+            $this->setDesc("carNo $carno 不存在");
+            return 3;
+        }
+
+        $tableReal = new tableSeatRealStatus();
+
+        table::startTrans();
+
+        for ( $i = 0; $i < count($statusMul); $i++) {
+            $snoAndseat = explode('|',$statusMul[$i]);
+//            print '#'.count($snoAndseat).'|'.$snoAndseat[1].'|'.$snoAndseat[0];
+            if($snoAndseat ==null || count($snoAndseat) != 2 ) {
+                $this->setDesc("座位格式不对 格式如:1|0,2|0,3|1,...10,0");
+                table::rollback();
+                return 2;
+            }
+
+            $num = $car->getSeatnum();
+
+            if($snoAndseat[0] > $num ) {
+                $this->setDesc("座位 $snoAndseat[0] 超过总的座位数 $num ");
+                table::rollback();
+                return 2;
+            }
+
+            if($snoAndseat[1] == null || ($snoAndseat[1] != 0 && $snoAndseat[1] != 1)) {
+                $this->setDesc("座位 $snoAndseat[0] 要修改的状态 $snoAndseat[1] 不支持。 状态0-没占用,1-占用 ");
+                table::rollback();
+                return 2;
+            }
+
+            if ( 0 != $tableReal->queryByCarSeat($carno,$snoAndseat[0]) ) {
+                $this->setDesc("座位 $snoAndseat[0] 获取失败");
+                table::rollback();
+                return 2;
+            }
+
+            if ( $tableReal->getStatus() != $snoAndseat[1]) {
+                if ( 0 != $tableReal->updateByCarSeat($carno,$snoAndseat[0],$snoAndseat[1]) ) {
+                    $this->setDesc("座位 $snoAndseat[0] 状态$snoAndseat[1] 修改失败");
+                    table::rollback();
+                    return 2;
+                }
+            }
+        }
+
+        table::commit();
+        $this->setResponseData(['carno'=>$carno,'status'=>$status]);
+
+        $this->setDesc("修改状态成功");
+        return 0;
+
+    }
+
+
+    public function realStatusUpdate() {
+
+        $ret = $this->subRealStatusUpdate();
+
+        $retDesc = ['retCode'=>$ret,'desc'=>$this->getDesc()];
+
+        $data = array_merge($retDesc,$this->getResponseData());
+
+        return $this->response($data,'json',200);
 
     }
 
