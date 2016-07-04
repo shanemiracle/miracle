@@ -11,6 +11,7 @@ namespace app\index\controller;
 
 use app\index\table\table;
 use app\index\table\tableOrder;
+use app\index\table\tableSales;
 use app\index\table\tableSchedule;
 use app\index\table\tableSeatOrderStatus;
 use think\controller\Rest;
@@ -224,6 +225,7 @@ class Order extends Rest
         $tableOrder->setOrderno(md5(time().mt_rand()));
         $tableOrder->setStartpos($startPos);
         $tableOrder->setSeatno($seatNo);
+        $tableOrder->setCarno($carno);
 
         if(0!=$tableOrder->add()) {
             $this->setDesc("订单添加失败");
@@ -345,9 +347,16 @@ class Order extends Rest
 
         $seatMult = explode(",",$tableOrder->getSeatno());
 
+        $tableSale = new tableSales();
+
         for ( $i = 0; $i < count($seatMult); $i++ ) {
             if ( 0 != $tableSeatOrderStatus->updateByStatus($tableOrder->getSno(),$tableOrder->getOndate(),$seatMult[$i],3) ) {
                 $this->setDesc("支付失败:座位 $seatMult[$i] 状态更改失败");
+                table::rollback();
+                return 4;
+            }
+            if( 0 != $tableSale->addByIndex($tableOrder->getCarno(),$tableOrder->getOndate(),$seatMult[$i])) {
+                $this->setDesc("支付失败:座位 $seatMult[$i] 统计状态更改失败");
                 table::rollback();
                 return 4;
             }
@@ -358,6 +367,9 @@ class Order extends Rest
             table::rollback();
             return 5;
         }
+
+
+
 
         table::commit();
 

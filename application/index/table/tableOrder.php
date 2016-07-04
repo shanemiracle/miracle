@@ -23,6 +23,24 @@ class tableOrder
     protected $createtime;
     protected $startpos;
     protected $endpos;
+    protected $carno;
+
+    /**
+     * @return mixed
+     */
+    public function getCarno()
+    {
+        return $this->carno;
+    }
+
+    /**
+     * @param mixed $carno
+     */
+    public function setCarno($carno)
+    {
+        $this->carno = $carno;
+    }
+
 
     /**
      * order constructor.
@@ -38,7 +56,7 @@ class tableOrder
     {
         $data = ['orderno'=>$this->orderno,'status'=>$this->status,
             'ondate'=>$this->ondate,'sno'=>$this->sno,'seatno'=>$this->seatno,
-            'startpos'=>$this->startpos,'endpos'=>$this->endpos];
+            'startpos'=>$this->startpos,'endpos'=>$this->endpos, 'carno'=>$this->carno];
 
         $result = Db::table($this->tablename)->insert($data);
 
@@ -83,6 +101,7 @@ class tableOrder
             $this->orderno = $data['orderno'];
             $this->startpos = $data['startpos'];
             $this->endpos = $data['endpos'];
+            $this->carno = $data['carno'];
 
             return 0;
         }
