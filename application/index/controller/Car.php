@@ -507,7 +507,7 @@ class Car extends Rest
         if($date) {
             $valid = new Validate();
 
-            if( true != $valid->check(['date'=>'dateFormat:Y-m-d'],['date'=>$date]) ) {
+            if( true != $valid->check (['date'=>$date],['date'=>'dateFormat:Y-m-d']) ) {
                 $this->setDesc("日期 $date 格式不对: YYYY-MM-DD");
                 return 2;
             }
