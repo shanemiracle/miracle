@@ -46,6 +46,6 @@ class tableSales
 //
 //        return -1;
 
-        return Db::table($this->tableName)->where('index','>=',$minIndex)->where('index','<',$maxIndex)->select();
+        return Db::table($this->tableName)->where('index',['>=',$minIndex],['<',$maxIndex],'and')->select();
     }
 }
