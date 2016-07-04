@@ -38,7 +38,7 @@ class tableSales
 //        print 'min'.$minIndex.'max'.$maxIndex;
 //        echo '<br>';where 'index' >= '$minIndex' and 'index' < '$maxIndex'
 
-        $data =  Db::query("select count(*) as num from bus.$this->tableName where index>=? and index<? ",[$minIndex,$maxIndex]);
+        $data =  Db::query("select count(*) as num from bus.$this->tableName where index>=?",[$minIndex]);
         print_r($data);
         if ( $data ) {
             return $data[0]['num'];
