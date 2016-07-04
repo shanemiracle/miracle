@@ -421,6 +421,7 @@ class Order extends Rest
         $status = $tableOrder->getStatus();
 
         $this->setResponseData(['orderNo'=>$orderno,'status'=>$status]);
+        $this->setDesc("订单状态查询成功");
 
         return 0;
     }
