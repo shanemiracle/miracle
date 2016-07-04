@@ -518,7 +518,7 @@ class Car extends Rest
 
         $tableSale = new tableSales();
         $saleNum = $tableSale->countByCarDate($carno,$date);
-        print_r($saleNum);
+//        print_r($saleNum);
 ////        if( $saleNum == -1 ) {
 //            $this->setDesc("查询失败");
 //            return 2;
