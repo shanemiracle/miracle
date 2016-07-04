@@ -32,8 +32,8 @@ class tableSales
 
     public function countByCarDate($carno,$date) {
 
-        $minIndex = sprintf("%07d%010d%03d",$carno,strtotime($date),0);
-        $maxIndex = sprintf("%07d%010d%03d",$carno,strtotime($date."+1 day"),999);
+        $minIndex = sprintf("%07d%010d%03d%010d",$carno,strtotime($date),0,0);
+        $maxIndex = sprintf("%07d%010d%03d%05d%05d",$carno,strtotime($date."+1 day"),999,99999,99999);
 
         print 'min'.$minIndex.'max'.$maxIndex;
         echo '<br>';
