@@ -35,7 +35,7 @@ class tableSales
         $minIndex = sprintf("%07d%010d%03d",$carno,strtotime($date),0);
         $maxIndex = sprintf("%07d%010d%03d",$carno,strtotime($date."+1 day"),999);
 
-//        print 'min'.$minIndex.'max'.$maxIndex;
+        print 'min'.$minIndex.'max'.$maxIndex.' date '.$date;
 //        echo '<br>';where 'index' >= '$minIndex' and 'index' < '$maxIndex'
 
 //        $data =  Db::query("select count(*) from bus.$this->tableName where 'index'>='$minIndex' and 'index'<'$maxIndex'");
