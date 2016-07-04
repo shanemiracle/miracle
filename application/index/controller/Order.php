@@ -22,8 +22,8 @@ class Order extends Rest
     protected $desc;
     protected $responseData = [];
     protected $payData = [];
-    public $url = 'http://localhost:8888';
-//    public $url = 'http://www.xjmiracle.com';
+//    public $url = 'http://localhost:8888';
+    public $url = 'http://www.xjmiracle.com';
 
     /**
      * @return array

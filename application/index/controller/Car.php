@@ -11,6 +11,7 @@ namespace app\index\controller;
 
 use app\index\table\table;
 use app\index\table\tableCar;
+use app\index\table\tableSales;
 use app\index\table\tableSchedule;
 use app\index\table\tableSeatOrderStatus;
 use app\index\table\tableSeatRealStatus;
@@ -479,6 +480,63 @@ class Car extends Rest
 
         return $this->response($data,'json',200);
 
+    }
+
+
+    private function subSaleCount() {
+        switch($this->_method) {
+            case 'post':
+                $carno = input('post.carno');
+                $date = input('post.date');
+                break;
+
+            case 'get':
+                $carno = input('get.carno');
+                $date = input('get.date');
+                break;
+
+            default:
+                $this->setDesc("请求方法 $this->_method 不支持");
+                return 1;
+        }
+        if($carno == null) {
+            $this->setDesc("carno 不能为空");
+            return 2;
+        }
+
+        if($date) {
+            $valid = new Validate();
+
+            if( true != $valid->check(['date'=>'dateFormat:Y-m-d'],['date'=>$date]) ) {
+                $this->setDesc("日期 $date 格式不对: YYYY-MM-DD");
+                return 2;
+            }
+        }
+        else{
+            $date = date('Y-m-d');
+        }
+
+        $tableSale = new tableSales();
+        $saleNum = $tableSale->countByCarDate($carno,$date);
+
+        $saleCount = $saleNum*3;
+
+        $this->setResponseData(['carno'=>$carno,'date'=>$date,'saleNum'=>$saleNum,'saleCount'=>$saleCount]);
+
+        $this->setDesc("修改状态成功");
+        return 0;
+
+
+    }
+
+    public function saleCount() {
+        $ret = $this->subSaleCount();
+
+        $retDesc = ['retCode'=>$ret,'desc'=>$this->getDesc()];
+
+        $data = array_merge($retDesc,$this->getResponseData());
+
+        return $this->response($data,'json',200);
     }
 
 
