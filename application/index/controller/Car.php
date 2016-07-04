@@ -521,7 +521,7 @@ class Car extends Rest
 
         $saleCount = $saleNum*3;
 
-        $this->setResponseData(['carno'=>$carno,'date'=>$date,'saleNum'=>$saleNum,'saleCount'=>$saleCount]);
+        $this->setResponseData(['carno'=>$carno,'date'=>$date,'saleNum'=>$saleNum,'saleCount'=>$saleCount.'.00']);
 
         $this->setDesc("查询成功");
         return 0;
