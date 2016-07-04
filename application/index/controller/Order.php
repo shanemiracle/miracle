@@ -369,8 +369,6 @@ class Order extends Rest
         }
 
 
-
-
         table::commit();
 
         $this->setDesc("支付成功");
@@ -394,6 +392,51 @@ class Order extends Rest
 //        return $view->fetch('payResult',['result'=>$result,'desc'=>'支付失败']);
 //    }
 
+    private function subPayStatus() {
+        switch($this->_method) {
+            case 'post':
+                $orderno = input('post.orderNo');
+                break;
+            case 'get':
+                $orderno = input('get.orderNo');
+                break;
+
+            default:
+                $this->setDesc("请求方法 $this->_method 不支持");
+                return 1;
+
+        }
+
+        if($orderno == null) {
+            $this->setDesc("orderNo 不能为空");
+            return 2;
+        }
+
+        $tableOrder = new tableOrder();
+        if ( 0 !=  $tableOrder->find($orderno) ) {
+            $this->setDesc("订单 $orderno 查询失败");
+            return 2;
+        }
+
+        $status = $tableOrder->getStatus();
+
+        $this->setResponseData(['orderNo'=>$orderno,'status'=>$status]);
+
+        return 0;
+    }
+
+    public function payStatus() {
+
+        $ret = $this->subPayStatus();
+
+        $retdesc = ['retCode'=>$ret,'desc'=>$this->desc];
+
+        $data = array_merge($retdesc,$this->getResponseData());
+
+        return $this->response($data,'json',200);
+
+
+    }
 
 
 }
