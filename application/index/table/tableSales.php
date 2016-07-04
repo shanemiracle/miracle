@@ -38,8 +38,8 @@ class tableSales
 //        print 'min'.$minIndex.'max'.$maxIndex;
 //        echo '<br>';
 
-//        return Db::query("count(*) from bus.$this->tableName where 'index' >= '$minIndex' and 'index' < '$maxIndex'");
+        return Db::query("select count(*) from bus.$this->tableName where 'index' >= '$minIndex' and 'index' < '$maxIndex'");
 
-        return Db::table($this->tableName)->where('index','>=',$minIndex)->where('index','<',$maxIndex)->count();
+//        return Db::table($this->tableName)->where('index','>=',$minIndex)->where('index','<',$maxIndex)->count();
     }
 }
