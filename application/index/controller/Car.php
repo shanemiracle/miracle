@@ -519,16 +519,16 @@ class Car extends Rest
         $tableSale = new tableSales();
         $saleNum = $tableSale->countByCarDate($carno,$date);
         print_r($saleNum);
-//        if( $saleNum == -1 ) {
-            $this->setDesc("查询失败");
-            return 2;
-//        }
+////        if( $saleNum == -1 ) {
+//            $this->setDesc("查询失败");
+//            return 2;
+////        }
 //
-//        $saleCount = $saleNum*3;
-//        $this->setResponseData(['carno'=>$carno,'date'=>$date,'saleNum'=>$saleNum,'saleCount'=>$saleCount.'.00']);
-//
-//        $this->setDesc("查询成功");
-//        return 0;
+        $saleCount = $saleNum*3;
+        $this->setResponseData(['carno'=>$carno,'date'=>$date,'saleNum'=>$saleNum,'saleCount'=>$saleCount.'.00']);
+
+        $this->setDesc("查询成功");
+        return 0;
 
 
     }
