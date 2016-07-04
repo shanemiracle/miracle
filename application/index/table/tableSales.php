@@ -17,7 +17,8 @@ class tableSales
 
     public function addByIndex($carno,$ontime,$seatseq) {
         $index = sprintf("%07d%010d%03d",$carno,strtotime($ontime),$seatseq);
-        $ret = Db::table($this->tableName)->insert($index);
+        $data=['index'=>$index];
+        $ret = Db::table($this->tableName)->insert($data);
         return $ret==1?0:1;
     }
 
