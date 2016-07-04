@@ -523,7 +523,7 @@ class Car extends Rest
 
         $this->setResponseData(['carno'=>$carno,'date'=>$date,'saleNum'=>$saleNum,'saleCount'=>$saleCount]);
 
-        $this->setDesc("修改状态成功");
+        $this->setDesc("查询成功");
         return 0;
 
 
