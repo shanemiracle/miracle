@@ -156,7 +156,7 @@ return [
 //        'type'=>'trace',//
 //        "trace_file"=>THINK_PATH.'tpl/page_trace.tpl',
         'type'=>'socket',
-        'host'=>'127.0.0.1',
+        'host'=>'52.78.62.220',
         'force_client_ids'=>[],
         'allow_client_ids'=>['xiaoj'],
     ],
@@ -218,4 +218,5 @@ return [
         'var_page'  => 'page',
         'list_rows' => 15,
     ],
+
 ];
