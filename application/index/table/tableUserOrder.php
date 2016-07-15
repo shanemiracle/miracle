@@ -75,7 +75,7 @@ class tableUserOrder
         if($data) {
             $this->id = $id;
             $this->user = $user;
-            $this->order = json_encode($data);
+            $this->order = $data;
 
             return 0;
         }
