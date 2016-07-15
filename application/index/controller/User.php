@@ -3,6 +3,7 @@ namespace app\index\controller;
 use app\index\table\table;
 use app\index\table\tableCar;
 use app\index\table\tableSchedule;
+use app\index\table\tableUserOrder;
 
 /**
  * Created by PhpStorm.
@@ -14,8 +15,11 @@ class User extends \think\controller\Rest
 {
     public function get()
     {
+        $t = new tableUserOrder();
 
-        $data = ['name'=>'xiaoj','age'=>'27','sex'=>'male'];
+        $data = $t->findByUser(10,1);
+
+//        $data = ['name'=>'xiaoj','age'=>'27','sex'=>'male'];
         return $this->response($data,'json',200);
     }
 
