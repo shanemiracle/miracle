@@ -74,7 +74,7 @@ class tableUserOrder
         $data = Db::table($this->tableName)->where('user',$user)->where('id','<',$id)->order('id','desc')->limit(10)->select();
         if($data) {
             $this->id = $id;
-            $this->user = $data['user'];
+            $this->user = $user;
             $this->order = json_encode($data);
 
             return 0;
