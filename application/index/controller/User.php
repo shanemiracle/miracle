@@ -17,7 +17,13 @@ class User extends \think\controller\Rest
     {
         $t = new tableUserOrder();
 
-        $data = $t->findByUser(10,1);
+        if ( 0 == $t->findByUser(10,1) ) {
+            $data = ['getMaxId'=>$t->getId(),'getUser'=>$t->getUser(),'allOrder'=>$t->getOrder()];
+        }
+        else {
+            $data = ['getMaxId'=>$t->getId(),'getUser'=>$t->getUser(),'allOrder'=>'null'];
+        }
+
 
 //        $data = ['name'=>'xiaoj','age'=>'27','sex'=>'male'];
         return $this->response($data,'json',200);
