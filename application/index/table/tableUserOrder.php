@@ -71,7 +71,7 @@ class tableUserOrder
     }
 
     public function findByUser($id,$user) {
-        $data = Db::table($this->tableName)->where('user',$user)->where('id','<',$id)->order('id','desc')->limit(10)->select();
+        $data = Db::table($this->tableName)->where('user',$user)->where('id','<',$id)->order('id','desc')->limit(10)->select(['id','order']);
         if($data) {
             $this->id = $id;
             $this->user = $user;
