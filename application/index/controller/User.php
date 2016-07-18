@@ -362,7 +362,7 @@ class User extends \think\controller\Rest
             echo '</br>';
             echo 'Path'.$info->getPath();
             echo '</br>';
-            echo 'PathInfo'.$info->getPathInfo();
+            echo 'PathInfo'.$info->getPathInfo()->getBasename();
             echo '</br>';
             echo 'realPath'.$info->getRealPath();
             echo '</br>';
