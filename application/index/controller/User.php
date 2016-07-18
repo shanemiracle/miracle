@@ -344,19 +344,26 @@ class User extends \think\controller\Rest
     }
 
     public function logoUpload() {
-        print 111111;
         $file = request()->file('image');
-        print 222222;
         $info = $file->move(ROOT_PATH.'public'.DS.'logo');
-        print 333333;
 
         if($info) {
-            print 44444;
-            echo $info->getExtension();
-            echo $info->getFilename();
+            echo 'ext'.$info->getExtension();
+            echo '</br>';
+            echo 'Filename'.$info->getFilename();
+            echo '</br>';
+            echo 'Pathname'.$info->getPathname();
+            echo '</br>';
+            echo 'Basename'.$info->getBasename();
+            echo '</br>';
+            echo 'Path'.$info->getPath();
+            echo '</br>';
+            echo 'PathInfo'.$info->getPathInfo();
+            echo '</br>';
+            echo 'realPath'.$info->getRealPath();
+            echo '</br>';
         }
         else {
-            print 55555;
             echo $file->getError();
         }
     }
