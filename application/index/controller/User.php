@@ -98,4 +98,81 @@ class User extends \think\controller\Rest
 
     }
 
+    public function add() {
+        $ret = $this->subAdd();
+
+        $retDesc = ['retCode'=>$ret,'desc'=>$this->getDesc()];
+
+        $data = array_merge($retDesc,$this->getResponseData());
+
+        return $this->response($data,'json',200);
+    }
+
+    private function subAdd()
+    {
+        switch($this->_method) {
+            case 'post':
+                $mobile = input('post.mobile');
+                $password = input('post.password');
+
+                $nickname = input('post.nickname');
+                $logo = input('post.logo');
+                $sex = input('post.sex');
+                $homeaddr = input('post.homeaddr');
+                $comaddr = input('post.comaddr');
+                $worktime = input('post.worktime');
+                $offtime = input('post.offtime');
+                break;
+
+            case 'get':
+                $mobile = input('get.mobile');
+                $password = input('get.password');
+
+                $nickname = input('get.nickname');
+                $logo = input('get.logo');
+                $sex = input('get.sex');
+                $homeaddr = input('get.homeaddr');
+                $comaddr = input('get.comaddr');
+                $worktime = input('get.worktime');
+                $offtime = input('get.offtime');
+                break;
+
+            default:
+                $this->setDesc("请求方法 $this->_method 不支持");
+                return 1;
+        }
+
+        if($mobile==null || $password==null) {
+            $this->setDesc("mobile,password不能为空");
+            return 2;
+        }
+
+        $tableUser = new tableUser();
+
+        if(0==$tableUser->findByMobile($mobile)) {
+            $this->setDesc("手机号 $mobile 已经注册");
+            return 3;
+        }
+
+        $tableUser->setMobile($mobile);
+        $tableUser->setPassword($password);
+        $tableUser->setNickname($nickname);
+        $tableUser->setLogo($logo);
+        $tableUser->setSex($sex);
+        $tableUser->setHomeaddr($homeaddr);
+        $tableUser->setComaddr($comaddr);
+        $tableUser->setWorktime($worktime);
+        $tableUser->setOfftime($offtime);
+
+        if ( 0 != $tableUser->add() ) {
+            $this->setDesc("添加数据库失败");
+            return 4;
+        }
+
+        $this->setResponseData(['mobile'=>$mobile,'password'=>$password,'userid'=>$tableUser->getId()]);
+
+        $this->setDesc("添加用户成功");
+        return 0;
+    }
+
 }
