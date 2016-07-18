@@ -348,8 +348,9 @@ class User extends \think\controller\Rest
         print_r( $file->getInfo());
         echo '</br>';
 
-        $info = $file->move(ROOT_PATH.'public'.DS.'logo');
+//        $info = $file->move(ROOT_PATH.'public'.DS.'logo');
 
+        $info = $file->move('home/xiaoj/logo');
         if($info) {
             echo 'ext'.$info->getExtension();
             echo '</br>';
