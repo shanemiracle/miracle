@@ -62,8 +62,7 @@ class tableUser
 
     public function update($id) {
         $data = [
-            'id'=>$id,
-
+            'id'=>$id
         ];
 
         if( $this->getNickname() ) { $data['nickname']= $this->getNickname(); }

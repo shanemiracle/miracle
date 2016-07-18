@@ -238,7 +238,7 @@ class User extends \think\controller\Rest
         $tableUser->setOfftime($offtime);
 
         if ( 0 != $tableUser->update($userid) ) {
-            $this->setDesc("添加数据库失败");
+            $this->setDesc("修改数据库失败");
             return 4;
         }
 
