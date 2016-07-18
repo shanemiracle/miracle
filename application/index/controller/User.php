@@ -245,4 +245,51 @@ class User extends \think\controller\Rest
         $this->setDesc("修改成功");
         return 0;
     }
+
+    public function get() {
+        $ret = $this->subGet();
+
+        $retDesc = ['retCode'=>$ret,'desc'=>$this->getDesc()];
+
+        $data = array_merge($retDesc,$this->getResponseData());
+
+        return $this->response($data,'json',200);
+    }
+
+    private function subGet()
+    {
+        switch($this->_method) {
+            case 'post':
+                $userid = input('post.userid');
+                break;
+
+            case 'get':
+                $userid = input('get.userid');
+                break;
+
+            default:
+                $this->setDesc("请求方法 $this->_method 不支持");
+                return 1;
+        }
+
+        if( $userid ==null) {
+            $this->setDesc("用户ID不能为空");
+            return 2;
+        }
+
+        $tableUser = new tableUser();
+        if ( 0 != $tableUser->find($userid) ) {
+            $this->setDesc("查找失败");
+            return 2;
+        }
+
+        $data = ['userid'=>$userid,'nickname'=>$tableUser->getNickname(),'logo'=>$tableUser->getLogo(),
+        'sex'=>$tableUser->getSex(),'homeaddr'=>$tableUser->getHomeaddr(),'comaddr'=>$tableUser->getHomeaddr(),
+        'worktime'=>$tableUser->getWorktime(),'offtime'=>$tableUser->getOfftime()];
+
+        $this->setResponseData($data);
+
+        $this->setDesc("获取 $userid 成功");
+        return 0;
+    }
 }
