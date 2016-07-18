@@ -85,7 +85,7 @@ class User extends \think\controller\Rest
 
         if ( 0 != $tableUser->findByMobile($mobile) ) {
             $regs = 0;
-            $tableUser->setId("");
+            $tableUser->setId(0);
         }
         else {
             $regs = 1;
