@@ -289,7 +289,57 @@ class User extends \think\controller\Rest
 
         $this->setResponseData($data);
 
-        $this->setDesc("获取 $userid 成功");
+        $this->setDesc("获取用户ID $userid 成功");
         return 0;
+    }
+
+    public function orderget($orderseq,$userid) {
+        $ret = $this->subOrderGet();
+
+        $retDesc = ['retCode'=>$ret,'desc'=>$this->getDesc()];
+
+        $data = array_merge($retDesc,$this->getResponseData());
+
+        return $this->response($data,'json',200);
+    }
+
+    private function subOrderGet()
+    {
+        switch($this->_method) {
+            case 'post':
+                $userid = input('post.userid');
+                $orderseq = input('post.orderseq');
+                break;
+
+            case 'get':
+                $userid = input('get.userid');
+                $orderseq = input('get.orderseq');
+                break;
+
+            default:
+                $this->setDesc("请求方法 $this->_method 不支持");
+                return 1;
+        }
+
+        if( $userid ==null || $orderseq == null) {
+            $this->setDesc("用户ID不能为空");
+            return 2;
+        }
+
+        $tableUserOrder = new tableUserOrder();
+        if($orderseq==0) {
+            $orderseq = 0xFFFFFFFF-1;
+        }
+
+        if ( 0 != $tableUserOrder->findByUser($userid,$orderseq) ) {
+            $this->setDesc("查询数据库失败");
+            return 3;
+        }
+
+        $this->setResponseData(['orderlist'=>$tableUserOrder->getOrder()]);
+
+        $this->setDesc("查询成功");
+        return 0;
+
     }
 }
