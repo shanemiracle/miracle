@@ -360,8 +360,8 @@ class User extends \think\controller\Rest
         }
 
         $file = request()->file('image');
-        print_r( $file->getInfo());
-        echo '</br>';
+//        print_r( $file->getInfo());
+//        echo '</br>';
 
 //        $info = $file->move(ROOT_PATH.'public'.DS.'logo');
 
