@@ -36,16 +36,15 @@ class tableUser
     public function add()
     {
         $data = [
-            'id'=>$this->getId(),
             'mobile'=>$this->getMobile(),
-            'nickname'=>$this->getNickname(),
-            'logo'=>$this->getLogo(),
+            $this->getNickname()==null?'':'nickname'=>$this->getNickname(),
+            $this->getLogo()==null?'':'logo'=>$this->getLogo(),
             'password'=>$this->getPassword(),
-            'sex'=>$this->getSex(),
-            'homeaddr'=>$this->getHomeaddr(),
-            'comaddr'=>$this->getComaddr(),
-            'worktime'=>$this->getWorktime(),
-            'offtime'=>$this->getOfftime()
+            $this->getSex()==null?'':'sex'=>$this->getSex(),
+            $this->getHomeaddr()==null?'':'homeaddr'=>$this->getHomeaddr(),
+            $this->getComaddr()==null?'':'comaddr'=>$this->getComaddr(),
+            $this->getWorktime()==null?'':'worktime'=>$this->getWorktime(),
+            $this->getOfftime()==null?'':'offtime'=>$this->getOfftime()
         ];
 
         $this->id = Db::table($this->tableName)->insertGetId($data);
