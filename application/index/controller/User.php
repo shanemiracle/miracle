@@ -343,7 +343,26 @@ class User extends \think\controller\Rest
 
     }
 
-    public function logoUpload() {
+    public function subLogoUpload() {
+        switch($this->_method) {
+            case 'post':
+                $userid = input('post.userid');
+                $orderseq = input('post.orderseq');
+                break;
+
+            default:
+                $this->setDesc("请求方法 $this->_method 不支持");
+                return 1;
+        }
+
+
+        $userid = input('post.userid');
+
+        if($userid == null) {
+            $this->setDesc("用户ID不能为空");
+            return 2;
+        }
+
         $file = request()->file('image');
         print_r( $file->getInfo());
         echo '</br>';
@@ -352,23 +371,38 @@ class User extends \think\controller\Rest
 
         $info = $file->rule('md5')->move(ROOT_PATH.'public'.DS.'logo');
         if($info) {
-            echo 'ext'.$info->getExtension();
-            echo '</br>';
-            echo 'Filename'.$info->getFilename();
-            echo '</br>';
-            echo 'Pathname'.$info->getPathname();
-            echo '</br>';
-            echo 'Basename'.$info->getBasename();
-            echo '</br>';
-            echo 'Path'.$info->getPath();
-            echo '</br>';
-            echo 'PathInfo'.$info->getPathInfo()->getBasename();
-            echo '</br>';
-            echo 'realPath'.$info->getRealPath();
-            echo '</br>';
+
+            $filename = $info->getFilename();
+            $fatherPath = $info->getPathInfo()->getBasename();
+
+            $logoname = 'http://www.xjmiracle.com/logo'.$fatherPath.'/'.$filename;
+
+            $tableUser = new tableUser();
+
+            $tableUser->setLogo($logoname);
+            if( 0 != $tableUser->update($userid) ) {
+                $this->setDesc("修改数据库失败");
+                return 3;
+            }
         }
         else {
-            echo $file->getError();
+            $this->setDesc("文件保存失败");
+            return 4;
         }
+
+        $this->setResponseData(['userid'=>$userid,'logo'=>$logoname]);
+
+        $this->setDesc("修改头像成功");
+        return 0;
+    }
+
+    public function logoUpload() {
+        $ret = $this->subLogoUpload();
+
+        $retDesc = ['retCode'=>$ret,'desc'=>$this->getDesc()];
+
+        $data = array_merge($retDesc,$this->getResponseData());
+
+        return $this->response($data,'json',200);
     }
 }
