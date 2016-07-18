@@ -9,6 +9,8 @@
 namespace app\index\table;
 
 
+use think\Db;
+
 class tableUser
 {
     protected $tableName = 'user';
