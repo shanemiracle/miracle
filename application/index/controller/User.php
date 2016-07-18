@@ -345,6 +345,9 @@ class User extends \think\controller\Rest
 
     public function logoUpload() {
         $file = request()->file('image');
+        echo $file->getInfo();
+        echo '</br>';
+
         $info = $file->move(ROOT_PATH.'public'.DS.'logo');
 
         if($info) {
