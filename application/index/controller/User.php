@@ -375,7 +375,7 @@ class User extends \think\controller\Rest
             $filename = $info->getFilename();
             $fatherPath = $info->getPathInfo()->getBasename();
 
-            $logoname = 'http://www.xjmiracle.com/logo'.$fatherPath.'/'.$filename;
+            $logoname = 'http://www.xjmiracle.com/logo/'.$fatherPath.'/'.$filename;
 
             $tableUser = new tableUser();
 
