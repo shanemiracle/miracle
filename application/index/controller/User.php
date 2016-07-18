@@ -3,6 +3,7 @@ namespace app\index\controller;
 use app\index\table\table;
 use app\index\table\tableCar;
 use app\index\table\tableSchedule;
+use app\index\table\tableUser;
 use app\index\table\tableUserOrder;
 
 /**
@@ -13,71 +14,87 @@ use app\index\table\tableUserOrder;
  */
 class User extends \think\controller\Rest
 {
-    public function get()
+    protected $desc;
+    protected $responseData = [];
+
+    /**
+     * @return mixed
+     */
+    public function getDesc()
     {
-        $t = new tableUserOrder();
+        return $this->desc;
+    }
 
-        if ( 0 == $t->findByUser(10,1) ) {
-            $data = ['getMaxId'=>$t->getId(),'getUser'=>$t->getUser(),'allOrder'=>$t->getOrder()];
-        }
-        else {
-            $data = ['getMaxId'=>$t->getId(),'getUser'=>$t->getUser(),'allOrder'=>'null'];
-        }
+    /**
+     * @param mixed $desc
+     */
+    public function setDesc($desc)
+    {
+        $this->desc = $desc;
+    }
+
+    /**
+     * @return array
+     */
+    public function getResponseData()
+    {
+        return $this->responseData;
+    }
+
+    /**
+     * @param array $responseData
+     */
+    public function setResponseData($responseData)
+    {
+        $this->responseData = $responseData;
+    }
 
 
-//        $data = ['name'=>'xiaoj','age'=>'27','sex'=>'male'];
+    public function mobilereg() {
+        $ret = $this->subMobilereg();
+
+        $retDesc = ['retCode'=>$ret,'desc'=>$this->getDesc()];
+
+        $data = array_merge($retDesc,$this->getResponseData());
+
         return $this->response($data,'json',200);
     }
 
-    public function add() {
-        $schedule = new tableSchedule();
+    private function subMobilereg()
+    {
+        switch($this->_method) {
+            case 'post':
+                $mobile = input('post.mobile');
+                break;
 
-        $schedule->setCarno(3);
-        $schedule->setTimestart('09:00:00');
-        $schedule->setTimeend('10:00:00');
+            case 'get':
+                $mobile = input('get.mobile');
+                break;
 
-        $ret = $schedule->add();
+            default:
+                $this->setDesc("请求方法 $this->_method 不支持");
+                return 1;
+        }
 
-        if ( 0 == $ret ) {
-            print 'add success '.$schedule->getSno();
+        if($mobile==null) {
+            $this->setDesc("mobile 不能为空");
+            return 2;
+        }
+
+        $tableUser = new tableUser();
+
+        if ( 0 != $tableUser->findByMobile($mobile) ) {
+            $regs = 0;
         }
         else {
-            print 'add faild';
+            $regs = 1;
         }
-    }
 
-    public function update($carno, $desc, $num) {
-        $car = new tableCar();
-        $car->setCardesc($desc);
-        $car->setSeatnum($num);
+        $this->setResponseData(['mobile'=>$mobile,'regstatus'=>$regs,'userid'=>$tableUser->getId()]);
 
-        $ret = $car->update($carno);
-        print ($ret==0)?"update success":'update failed';
-    }
-    
-    public function del($sno) {
-        $car = new tableSchedule();
-        $ret = $car->del($sno);
+        $this->setDesc("查询成功");
+        return 0;
 
-        print ($ret==0)?"del success":'del failed';
-    }
-
-    public function find($carno,$time) {
-        $car = new tableSchedule();
-
-        $ret = $car->findByCarTime($carno,$time);
-
-//        print_r($ret);
-
-        if($ret == 0) {
-            print 'carno '.$car->getCarno();
-            print ' sno'.$car->getSno();
-            print ' start '.$car->getTimestart();
-            print ' end '.$car->getTimeend();
-        }
-        else {
-            print 'get failed';
-        }
     }
 
 }

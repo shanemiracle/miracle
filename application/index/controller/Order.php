@@ -14,6 +14,7 @@ use app\index\table\tableOrder;
 use app\index\table\tableSales;
 use app\index\table\tableSchedule;
 use app\index\table\tableSeatOrderStatus;
+use app\index\table\tableUserOrder;
 use think\controller\Rest;
 use think\Validate;
 use think\View;
@@ -95,6 +96,7 @@ class Order extends Rest
                 $endPos = input('post.endPos');
                 $time = input('post.onTime');
                 $seatNo = input('post.seatNo');
+                $user = input('post.userid');
                 break;
             case 'get':
                 $carno = input('get.carno');
@@ -102,6 +104,7 @@ class Order extends Rest
                 $endPos = input('get.endPos');
                 $time = input('get.onTime');
                 $seatNo = input('get.seatNo');
+                $user = input('get.userid');
                 break;
 
             default:
@@ -231,6 +234,18 @@ class Order extends Rest
             $this->setDesc("订单添加失败");
             table::rollback();
             return 6;
+        }
+
+        if($user) {
+            $tableUserOrder = new tableUserOrder();
+            $tableUserOrder->setUser($user);
+            $tableUserOrder->setOrder($tableOrder->getOrderno());
+
+            if( 0 != $tableUserOrder->add() ) {
+                $this->setDesc("用户与订单绑定失败");
+                table::rollback();
+                return 6;
+            }
         }
 
         table::commit();
@@ -436,6 +451,54 @@ class Order extends Rest
 
         return $this->response($data,'json',200);
 
+
+    }
+
+
+
+    public function get() {
+        $ret = $this->subGet();
+
+        $retdesc = ['retCode'=>$ret,'desc'=>$this->desc];
+
+        $data = array_merge($retdesc,$this->getResponseData());
+
+        return $this->response($data,'json',200);
+    }
+
+    private function subGet()
+    {
+        switch($this->_method) {
+            case 'post':
+                $orderno = input('post.orderNo');
+                break;
+            case 'get':
+                $orderno = input('get.orderNo');
+                break;
+
+            default:
+                $this->setDesc("请求方法 $this->_method 不支持");
+                return 1;
+
+        }
+
+        if($orderno == null) {
+            $this->setDesc("orderNo不允许为空");
+            return 2;
+        }
+
+        $tableOrder = new tableOrder();
+        if ( 0 !=  $tableOrder->find($orderno) ) {
+            $this->setDesc("订单 $orderno 查询失败");
+            return 3;
+        }
+
+        $this->setResponseData(['orderNo'=>$orderno,'carno'=>$tableOrder->getCarno(),'startPos'=>$tableOrder->getStartpos(),
+        'endPos'=>$tableOrder->getEndpos(),'onTime'=>$tableOrder->getOndate(),'seatNo'=>$tableOrder->getSeatno(),
+            'sno'=>$tableOrder->getSno(), 'status'=>$tableOrder->getStatus() ]);
+        $this->setDesc("订单查询成功");
+
+        return 0;
 
     }
 
