@@ -147,6 +147,11 @@ class User extends \think\controller\Rest
             return 2;
         }
 
+        if( strlen($password) < 6 || strlen($password) > 64 ) {
+            $this->setDesc("密码长度需要满足 6<=len<=64");
+            return 2;
+        }
+
         $tableUser = new tableUser();
 
         if(0==$tableUser->findByMobile($mobile)) {
