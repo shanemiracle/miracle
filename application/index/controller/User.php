@@ -350,7 +350,7 @@ class User extends \think\controller\Rest
 
 //        $info = $file->move(ROOT_PATH.'public'.DS.'logo');
 
-        $info = $file->move('home/xiaoj/logo');
+        $info = $file->rule('md5')->move(ROOT_PATH.'public'.DS.'logo');
         if($info) {
             echo 'ext'.$info->getExtension();
             echo '</br>';
