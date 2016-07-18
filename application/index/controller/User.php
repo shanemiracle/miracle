@@ -293,7 +293,7 @@ class User extends \think\controller\Rest
         return 0;
     }
 
-    public function orderget($orderseq,$userid) {
+    public function orderget( ) {
         $ret = $this->subOrderGet();
 
         $retDesc = ['retCode'=>$ret,'desc'=>$this->getDesc()];
@@ -329,12 +329,13 @@ class User extends \think\controller\Rest
         $tableUserOrder = new tableUserOrder();
         if($orderseq == null || $orderseq==0) {
             $orderseq = 0xFFFFFFFF-1;
-            if ( 0 != $tableUserOrder->findByUser($orderseq,$userid) ) {
-                $this->setDesc("查询数据库失败");
-                return 3;
-            }
         }
-        
+
+        if ( 0 != $tableUserOrder->findByUser($orderseq,$userid) ) {
+            $this->setDesc("查询数据库失败");
+            return 3;
+        }
+
         $this->setResponseData(['orderlist'=>$tableUserOrder->getOrder()]);
 
         $this->setDesc("查询成功");
