@@ -327,8 +327,8 @@ class User extends \think\controller\Rest
         }
 
         $tableUserOrder = new tableUserOrder();
-        if($orderseq==0) {
-            $orderseq = 0xFFFFFFFF-1;
+        if($orderseq == null || $orderseq==0) {
+            $orderseq = 2147483648;//2^31
         }
 
         if ( 0 != $tableUserOrder->findByUser($userid,$orderseq) ) {
