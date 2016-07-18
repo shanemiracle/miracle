@@ -347,16 +347,12 @@ class User extends \think\controller\Rest
         switch($this->_method) {
             case 'post':
                 $userid = input('post.userid');
-                $orderseq = input('post.orderseq');
                 break;
 
             default:
                 $this->setDesc("请求方法 $this->_method 不支持");
                 return 1;
         }
-
-
-        $userid = input('post.userid');
 
         if($userid == null) {
             $this->setDesc("用户ID不能为空");
