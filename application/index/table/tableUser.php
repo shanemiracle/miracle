@@ -37,20 +37,23 @@ class tableUser
     {
         $data = [
             'mobile'=>$this->getMobile(),
-            'password'=>$this->getPassword(),
-
-            'logo'=>$this->getLogo(),
-            'sex'=>$this->getSex(),
-            'homeaddr'=>$this->getHomeaddr(),
-            'comaddr'=>$this->getComaddr(),
-            'worktime'=>$this->getWorktime(),
-            'offtime'=>$this->getOfftime()
+            'password'=>$this->getPassword()
         ];
 
-        if( $this->getNickname() ) {
-            $data['nickname']= $this->getNickname();
-        }
+        if( $this->getNickname() ) { $data['nickname']= $this->getNickname(); }
 
+        if($this->getLogo()) { $data['logo']= $this->getLogo(); }
+
+        if($this->sex) { $data['sex']= $this->sex; }
+
+        if($this->homeaddr) { $data['homeaddr']= $this->homeaddr; }
+
+        if($this->comaddr) { $data['comaddr']= $this->comaddr; }
+
+        if($this->worktime) { $data['worktime']= $this->worktime; }
+
+        if($this->offtime) { $data['offtime']= $this->offtime; }
+        
         $this->id = Db::table($this->tableName)->insertGetId($data);
         $ret = ( 0 != $this->id )?0:1;
 
