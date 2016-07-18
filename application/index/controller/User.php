@@ -180,4 +180,69 @@ class User extends \think\controller\Rest
         return 0;
     }
 
+    public function update() {
+        $ret = $this->subUpdate();
+
+        $retDesc = ['retCode'=>$ret,'desc'=>$this->getDesc()];
+
+        $data = array_merge($retDesc,$this->getResponseData());
+
+        return $this->response($data,'json',200);
+    }
+
+    private function subUpdate()
+    {
+        switch($this->_method) {
+            case 'post':
+                $userid = input('post.userid');
+                $nickname = input('post.nickname');
+                $logo = input('post.logo');
+                $sex = input('post.sex');
+                $homeaddr = input('post.homeaddr');
+                $comaddr = input('post.comaddr');
+                $worktime = input('post.worktime');
+                $offtime = input('post.offtime');
+                break;
+
+            case 'get':
+                $userid = input('get.userid');
+                $nickname = input('get.nickname');
+                $logo = input('get.logo');
+                $sex = input('get.sex');
+                $homeaddr = input('get.homeaddr');
+                $comaddr = input('get.comaddr');
+                $worktime = input('get.worktime');
+                $offtime = input('get.offtime');
+                break;
+
+            default:
+                $this->setDesc("请求方法 $this->_method 不支持");
+                return 1;
+        }
+
+
+
+        if( $userid ==null) {
+            $this->setDesc("用户ID不能为空");
+            return 2;
+        }
+
+        $tableUser = new tableUser();
+
+        $tableUser->setNickname($nickname);
+        $tableUser->setLogo($logo);
+        $tableUser->setSex($sex);
+        $tableUser->setHomeaddr($homeaddr);
+        $tableUser->setComaddr($comaddr);
+        $tableUser->setWorktime($worktime);
+        $tableUser->setOfftime($offtime);
+
+        if ( 0 != $tableUser->update($userid) ) {
+            $this->setDesc("添加数据库失败");
+            return 4;
+        }
+
+        $this->setDesc("修改成功");
+        return 0;
+    }
 }

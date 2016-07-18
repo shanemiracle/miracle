@@ -53,7 +53,7 @@ class tableUser
         if($this->worktime) { $data['worktime']= $this->worktime; }
 
         if($this->offtime) { $data['offtime']= $this->offtime; }
-        
+
         $this->id = Db::table($this->tableName)->insertGetId($data);
         $ret = ( 0 != $this->id )?0:1;
 
@@ -63,16 +63,24 @@ class tableUser
     public function update($id) {
         $data = [
             'id'=>$id,
-            'mobile'=>$this->getMobile(),
-            'nickname'=>$this->getNickname(),
-            'logo'=>$this->getLogo(),
-            'password'=>$this->getPassword(),
-            'sex'=>$this->getSex(),
-            'homeaddr'=>$this->getHomeaddr(),
-            'comaddr'=>$this->getComaddr(),
-            'worktime'=>$this->getWorktime(),
-            'offtime'=>$this->getOfftime()
+
         ];
+
+        if( $this->getNickname() ) { $data['nickname']= $this->getNickname(); }
+
+        if($this->getLogo()) { $data['logo']= $this->getLogo(); }
+
+        if($this->sex) { $data['sex']= $this->sex; }
+
+        if($this->homeaddr) { $data['homeaddr']= $this->homeaddr; }
+
+        if($this->comaddr) { $data['comaddr']= $this->comaddr; }
+
+        if($this->worktime) { $data['worktime']= $this->worktime; }
+
+        if($this->offtime) { $data['offtime']= $this->offtime; }
+
+
         $result = Db::table($this->tableName)->update($data);
 
         $ret = $result==1?0:1;
