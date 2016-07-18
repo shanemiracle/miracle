@@ -321,16 +321,17 @@ class User extends \think\controller\Rest
                 return 1;
         }
 
-        if( $userid ==null || $orderseq == null) {
+        if( $userid ==null ) {
             $this->setDesc("用户ID不能为空");
             return 2;
         }
 
         $tableUserOrder = new tableUserOrder();
         if($orderseq == null || $orderseq==0) {
-            $orderseq = 2147483648;//2^31
+            $orderseq = 10;//2^31
         }
-
+        print $userid;
+        print $orderseq;
         if ( 0 != $tableUserOrder->findByUser($userid,$orderseq) ) {
             $this->setDesc("查询数据库失败");
             return 3;
