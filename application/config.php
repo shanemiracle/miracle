@@ -156,7 +156,7 @@ return [
 
 //        'type'=>'trace',//å
 //        "trace_file"=>THINK_PATH.'tpl/page_trace.tpl',
-    
+
         'type'=>'socket',
         'host'=>'52.78.62.220',
         'force_client_ids'=>[],
