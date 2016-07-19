@@ -283,7 +283,7 @@ class User extends \think\controller\Rest
             return 2;
         }
 
-        $data = ['userid'=>$userid,'nickname'=>$tableUser->getNickname(),'logo'=>$tableUser->getLogo(),
+        $data = ['userid'=>$userid,'mobile'=>$tableUser->getMobile(),'nickname'=>$tableUser->getNickname(),'logo'=>$tableUser->getLogo(),
         'sex'=>$tableUser->getSex(),'homeaddr'=>$tableUser->getHomeaddr(),'comaddr'=>$tableUser->getHomeaddr(),
         'worktime'=>$tableUser->getWorktime(),'offtime'=>$tableUser->getOfftime()];
 
