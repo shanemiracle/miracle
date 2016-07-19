@@ -68,6 +68,9 @@ class tableUser
         ];
 
         $dbdata = Db::table($this->tableName)->where('id',$id)->find();
+        if ( $dbdata == null ) {
+            return 2;
+        }
 
         if( $this->getNickname() && strcmp($dbdata['nickname'],$this->getNickname())) { $data['nickname']= $this->getNickname(); $needModify = 1; }
 
