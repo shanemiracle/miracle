@@ -377,7 +377,7 @@ class User extends \think\controller\Rest
 
             $tableUser->setLogo($logoname);
             if( 0 != ($errid = $tableUser->update($userid) ) ) {
-                $this->setDesc("修改数据库失败 err "+ $errid);
+                $this->setDesc("修改数据库失败 err $errid");
                 return 3;
             }
         }
