@@ -284,7 +284,7 @@ class User extends \think\controller\Rest
         }
 
         $data = ['userid'=>$userid,'mobile'=>$tableUser->getMobile(),'nickname'=>$tableUser->getNickname(),'logo'=>$tableUser->getLogo(),
-        'sex'=>$tableUser->getSex(),'homeaddr'=>$tableUser->getHomeaddr(),'comaddr'=>$tableUser->getHomeaddr(),
+        'sex'=>$tableUser->getSex(),'homeaddr'=>$tableUser->getHomeaddr(),'comaddr'=>$tableUser->getComaddr(),
         'worktime'=>$tableUser->getWorktime(),'offtime'=>$tableUser->getOfftime()];
 
         $this->setResponseData($data);

@@ -61,24 +61,31 @@ class tableUser
     }
 
     public function update($id) {
+        $needModify = 0;
+
         $data = [
             'id'=>$id
         ];
 
-        if( $this->getNickname() ) { $data['nickname']= $this->getNickname(); }
+        $dbdata = Db::table($this->tableName)->where('id',$id)->find();
 
-        if($this->getLogo()) { $data['logo']= $this->getLogo(); }
+        if( $this->getNickname() && strcmp($dbdata['nickname'],$this->getNickname())) { $data['nickname']= $this->getNickname(); $needModify = 1; }
 
-        if($this->sex) { $data['sex']= $this->sex; }
+        if($this->getLogo() && strcmp($dbdata['logo'],$this->getLogo()) ) { $data['logo']= $this->getLogo(); $needModify = 1; }
 
-        if($this->homeaddr) { $data['homeaddr']= $this->homeaddr; }
+        if($this->sex && strcmp($dbdata['sex'],$this->getSex())  ) { $data['sex']= $this->sex; $needModify = 1;}
 
-        if($this->comaddr) { $data['comaddr']= $this->comaddr; }
+        if($this->homeaddr && strcmp($dbdata['homeaddr'],$this->getHomeaddr()) ) { $data['homeaddr']= $this->homeaddr;$needModify = 1; }
 
-        if($this->worktime) { $data['worktime']= $this->worktime; }
+        if($this->comaddr && strcmp($dbdata['comaddr'],$this->getComaddr())) { $data['comaddr']= $this->comaddr; $needModify = 1;}
 
-        if($this->offtime) { $data['offtime']= $this->offtime; }
+        if($this->worktime && strcmp($dbdata['worktime'],$this->getWorktime()) ) { $data['worktime']= $this->worktime; $needModify = 1;}
 
+        if($this->offtime && strcmp($dbdata['offtime'],$this->getOfftime()) ) { $data['offtime']= $this->offtime; $needModify = 1;}
+
+        if($needModify == 0) {
+            return 0;
+        }
 
         $result = Db::table($this->tableName)->update($data);
 
