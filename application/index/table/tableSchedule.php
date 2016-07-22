@@ -98,18 +98,18 @@ class tableSchedule
      * @throws \think\db\exception\ModelNotFoundException
      */
     public function findByCarTime($carno,$time) {
-
+        echo '1111111#######</br>';
         $data = Db::table($this->tableName)->where('carno',$carno)->where('timestart','<=',$time)->where('timeend','>',$time)->find();
-
+        echo '22222222#######</br>';
         if ($data) {
             $this->setSno($data['sno']);
             $this->setCarno($carno);
             $this->setTimestart($data['timestart']);
             $this->setTimeend($data['timeend']);
-
+            echo '333333#######</br>';
             return 0;
         }
-
+        echo '4444444#######</br>';
         return 1;
     }
 

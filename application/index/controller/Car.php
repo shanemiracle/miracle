@@ -429,13 +429,13 @@ class Car extends Rest
         $retData = array();
         $retNum = 0;
 
-
-
         echo '222222222</br>';
 
         for ($day = 0; $day < 5; $day++)
         {
-            echo '3333333333 </br>  '.$carno.$onTime;
+            $weekarray = array("日", "一", "二", "三", "四", "五", "六");
+            $week = "星期".$weekarray[date("w", $onDate)];
+            echo '3333333333 </br>  '.$carno.$onTime.$week;
 
 
             $tableSchedule = new tableSchedule();
@@ -443,10 +443,6 @@ class Car extends Rest
                 $this->setDesc("carno $carno 在 $onTime 时间点没有车次");
                 return 3;
             }
-
-            $weekarray = array("日", "一", "二", "三", "四", "五", "六");
-            $week = "星期".$weekarray[date("w", $onDate)];
-
 
             echo '444444444444</br>'.$week;
             $sno = $tableSchedule->getSno();
