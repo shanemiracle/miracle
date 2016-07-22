@@ -333,7 +333,7 @@ class User extends \think\controller\Rest
         }
 
         if ( 0 != $tableUserOrder->findByUser($orderseq,$userid) ) {
-            $this->setDesc("查询数据库失败");
+            $this->setDesc("没有数据记录");
             return 3;
         }
 
@@ -356,7 +356,7 @@ class User extends \think\controller\Rest
             $retData[$acnum]['startpos'] = $tableOrder->getStartpos();
             $retData[$acnum]['endpos'] = $tableOrder->getEndpos();
             $retData[$acnum]['ondate'] = $tableOrder->getOndate();
-            
+
             $tableSno = new tableSchedule();
             if( 0 == $tableSno->find($tableOrder->getSno()) ) {
                 $retData[$acnum]['ontime'] = $tableSno->getTimestart();
