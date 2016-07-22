@@ -348,22 +348,25 @@ class User extends \think\controller\Rest
             if ( 0 != $tableOrder->find($orderNo) ) {
                 continue;
             }
-            $retData[$acnum++]['id'] = $orderNoList[$i]['id'];
-            $retData[$acnum++]['order'] = $orderNo;
-            $retData[$acnum++]['carno'] = $tableOrder->getCarno();
-            $retData[$acnum++]['sno'] = $tableOrder->getSno();
-            $retData[$acnum++]['startpos'] = $tableOrder->getStartpos();
-            $retData[$acnum++]['endpos'] = $tableOrder->getEndpos();
-            $retData[$acnum++]['ondate'] = $tableOrder->getOndate();
 
+            $retData[$acnum]['id'] = $orderNoList[$i]['id'];
+            $retData[$acnum]['order'] = $orderNo;
+            $retData[$acnum]['carno'] = $tableOrder->getCarno();
+            $retData[$acnum]['sno'] = $tableOrder->getSno();
+            $retData[$acnum]['startpos'] = $tableOrder->getStartpos();
+            $retData[$acnum]['endpos'] = $tableOrder->getEndpos();
+            $retData[$acnum]['ondate'] = $tableOrder->getOndate();
+            
             $tableSno = new tableSchedule();
             if( 0 == $tableSno->find($tableOrder->getSno()) ) {
-                $retData[$acnum++]['ontime'] = $tableSno->getTimestart();
+                $retData[$acnum]['ontime'] = $tableSno->getTimestart();
             }
-            
-            $retData[$acnum++]['seatno'] = $tableOrder->getSeatno();
-            $retData[$acnum++]['status'] = $tableOrder->getStatus();
-            $retData[$acnum++]['createtime'] = $tableOrder->getCreatetime();
+
+            $retData[$acnum]['seatno'] = $tableOrder->getSeatno();
+            $retData[$acnum]['status'] = $tableOrder->getStatus();
+            $retData[$acnum]['createtime'] = $tableOrder->getCreatetime();
+
+            $acnum++;
         }
 
         $this->setResponseData(['orderlist'=>$retData]);
