@@ -419,7 +419,6 @@ class Car extends Rest
             $onTime = date('H:i:s');
         }
 
-        echo '1111111</br>';
         $car = new tableCar();
         $ret = $car->find($carno);
         if (0 != $ret) {
@@ -430,23 +429,19 @@ class Car extends Rest
         $retData = array();
         $retNum = 0;
 
-        echo '222222222</br>';
+        date_default_timezone_set('UTC');
 
         for ($day = 0; $day < 5; $day++)
         {
-            echo '333311111</br>';
             $weekarray = array("日", "一", "二", "三", "四", "五", "六");
-            $week = "星期五";
-//            echo '3333333333 </br>'.$carno.$onTime.date("w", $time);
-
-
+            $week = "星期".date("w", $onDate);
+            
             $tableSchedule = new tableSchedule();
             if (0 != $tableSchedule->findByCarTime($carno, $onTime)) {
                 $this->setDesc("carno $carno 在 $onTime 时间点没有车次");
                 return 3;
             }
 
-            echo '444444444444</br>';
             $sno = $tableSchedule->getSno();
 
             $retData[$retNum]['date'] = $onDate;
@@ -474,10 +469,8 @@ class Car extends Rest
 
             $retNum++;
             $onDate = date("Y-m-d",strtotime("$onDate+1 day"));
-            echo '777777</br>';
         }
 
-        echo '888888</br>';
         $this->setResponseData(['carno'=>$carno,'saleStatus'=>$retData]);
 
         $this->setDesc("获取成功");
