@@ -437,8 +437,8 @@ class Car extends Rest
 
         for ($day = 0; $day < 5; $day++)
         {
-            $week = "星期".$weekarray[$weekNum];
-            $weekNum = $weekNum++%7;
+            $week = "星期".$weekarray[$weekNum%7];
+            $weekNum++;
 
             if (0 != $tableSchedule->findByCarTime($carno, $onTime)) {
                 $this->setDesc("carno $carno 在 $onTime 时间点没有车次");
@@ -451,7 +451,6 @@ class Car extends Rest
             $retData[$retNum]['week'] = $week;
 
             for ($i = 1; $i <= $car->getSeatnum(); $i++) {
-                echo '55555555</br>';
 
                 if (0 != $seatStatus->queryStatusByIndex($sno, $onDate, $i)) {
                     $this->setDesc("carno $carno 车次 $sno 对应座位 $i 状态查询异常");
@@ -466,7 +465,6 @@ class Car extends Rest
             }
 
             if ($i == $car->getSeatnum() + 1) {
-                echo '666666</br>';
                 $retData[$retNum]['sale'] = '售罄';
             }
 
