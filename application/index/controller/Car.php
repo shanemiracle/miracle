@@ -429,8 +429,8 @@ class Car extends Rest
         $retData = array();
         $retNum = 0;
 
-        $tableSchedule = new tableSchedule();
-        $seatStatus = new tableSeatOrderStatus();
+
+
         echo '222222222</br>';
 
         for ($day = 0; $day < 5; $day++)
@@ -439,11 +439,13 @@ class Car extends Rest
             $weekarray = array("日", "一", "二", "三", "四", "五", "六");
             $week = "星期".$weekarray[date("w", $onDate)];
 
-
+            $tableSchedule = new tableSchedule();
             if (0 != $tableSchedule->findByCarTime($carno, $onTime)) {
                 $this->setDesc("carno $carno 在 $onTime 时间点没有车次");
                 return 3;
             }
+
+
             echo '444444444444</br>';
             $sno = $tableSchedule->getSno();
 
@@ -452,6 +454,7 @@ class Car extends Rest
 
             for ($i = 1; $i <= $car->getSeatnum(); $i++) {
                 echo '55555555</br>';
+                $seatStatus = new tableSeatOrderStatus();
                 if (0 != $seatStatus->queryStatusByIndex($sno, $onDate, $i)) {
                     $this->setDesc("carno $carno 车次 $sno 对应座位 $i 状态查询异常");
                     return 3;
