@@ -384,6 +384,107 @@ class Car extends Rest
 
     }
 
+    private function subLeftTickets()
+    {
+        switch ($this->_method) {
+            case 'post':
+                $carno = input('post.carno');
+                $time = input('post.time');
+                break;
+
+            case 'get':
+                $carno = input('get.carno');
+                $time = input('get.time');
+                break;
+
+            default:
+                $this->setDesc("请求方法 $this->_method 不支持");
+                return 1;
+        }
+        $valid = new Validate();
+
+        if ($time) {
+            if (true != $valid->check(['time' => $time], ['time' => 'dateFormat:Y-m-d H:i:s'])) {
+                $this->setDesc("time 格式需要满足YYYY-MM-DD HH:mm:ss");
+                return 2;
+            }
+
+            $timeMult = explode(" ", $time);
+
+            $onDate = $timeMult[0];
+            $onTime = $timeMult[1];
+        } else {
+            $onDate = date('Y-m-d');
+            $onTime = date('H:i:s');
+        }
+
+
+        $car = new tableCar();
+        $ret = $car->find($carno);
+        if (0 != $ret) {
+            $this->setDesc("carno $carno 不存在");
+            return 3;
+        }
+
+        for ($day = 0; $day < 5; $day++)
+        {
+            $weekarray = array("日", "一", "二", "三", "四", "五", "六");
+            $week = "星期" . $weekarray[date("w", $onDate)];
+
+            $retData = array();
+            $retNum = 0;
+
+            $tableSchedule = new tableSchedule();
+            if (0 != $tableSchedule->findByCarTime($carno, $onTime)) {
+                $this->setDesc("carno $carno 在 $onTime 时间点没有车次");
+                return 3;
+            }
+
+            $sno = $tableSchedule->getSno();
+
+            $seatStatus = new tableSeatOrderStatus();
+
+            $retData[$retNum]['date'] = $onDate;
+            $retData[$retNum]['week'] = $week;
+
+            for ($i = 1; $i <= $car->getSeatnum(); $i++) {
+                if (0 != $seatStatus->queryStatusByIndex($sno, $onDate, $i)) {
+                    $this->setDesc("carno $carno 车次 $sno 对应座位 $i 状态查询异常");
+                    return 3;
+                }
+
+                if ($seatStatus->getStatus() == 1) {
+
+                    $retData[$retNum]['sale'] = '有票';
+                    break;
+                }
+            }
+
+            if ($i == $car->getSeatnum() + 1) {
+                $retData[$retNum]['sale'] = '售罄';
+            }
+
+            $retNum++;
+            $onDate = date("Y-m-d",strtotime("$onDate+1 day"));
+        }
+
+        $this->setResponseData(['carno'=>$carno,'saleStatus'=>$retData]);
+
+        $this->setDesc("获取成功");
+        return 0;
+
+    }
+
+    public function leftTickets() {
+        $ret = $this->subLeftTickets();
+
+        $retDesc = ['retCode'=>$ret,'desc'=>$this->getDesc()];
+
+        $data = array_merge($retDesc,$this->getResponseData());
+
+        return $this->response($data,'json',200);
+    }
+
 
     private function subRealStatusUpdate() {
         switch($this->_method) {
