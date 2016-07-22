@@ -418,7 +418,7 @@ class Car extends Rest
             $onTime = date('H:i:s');
         }
 
-
+        echo '1111111</br>';
         $car = new tableCar();
         $ret = $car->find($carno);
         if (0 != $ret) {
@@ -426,28 +426,32 @@ class Car extends Rest
             return 3;
         }
 
+        $retData = array();
+        $retNum = 0;
+
+        $tableSchedule = new tableSchedule();
+        $seatStatus = new tableSeatOrderStatus();
+        echo '222222222</br>';
+
         for ($day = 0; $day < 5; $day++)
         {
+            echo '3333333333</br>';
             $weekarray = array("日", "一", "二", "三", "四", "五", "六");
-            $week = "星期" . $weekarray[date("w", $onDate)];
+            $week = "星期".$weekarray[date("w", $onDate)];
 
-            $retData = array();
-            $retNum = 0;
 
-            $tableSchedule = new tableSchedule();
             if (0 != $tableSchedule->findByCarTime($carno, $onTime)) {
                 $this->setDesc("carno $carno 在 $onTime 时间点没有车次");
                 return 3;
             }
-
+            echo '444444444444</br>';
             $sno = $tableSchedule->getSno();
-
-            $seatStatus = new tableSeatOrderStatus();
 
             $retData[$retNum]['date'] = $onDate;
             $retData[$retNum]['week'] = $week;
 
             for ($i = 1; $i <= $car->getSeatnum(); $i++) {
+                echo '55555555</br>';
                 if (0 != $seatStatus->queryStatusByIndex($sno, $onDate, $i)) {
                     $this->setDesc("carno $carno 车次 $sno 对应座位 $i 状态查询异常");
                     return 3;
@@ -461,13 +465,16 @@ class Car extends Rest
             }
 
             if ($i == $car->getSeatnum() + 1) {
+                echo '666666</br>';
                 $retData[$retNum]['sale'] = '售罄';
             }
 
             $retNum++;
             $onDate = date("Y-m-d",strtotime("$onDate+1 day"));
+            echo '777777</br>';
         }
 
+        echo '888888</br>';
         $this->setResponseData(['carno'=>$carno,'saleStatus'=>$retData]);
 
         $this->setDesc("获取成功");
