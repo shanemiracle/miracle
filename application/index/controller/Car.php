@@ -437,7 +437,7 @@ class Car extends Rest
             echo '333311111</br>';
             $weekarray = array("日", "一", "二", "三", "四", "五", "六");
             $week = "星期五";
-            echo '3333333333 </br>'.$carno.$onTime.date("w", $time);
+//            echo '3333333333 </br>'.$carno.$onTime.date("w", $time);
 
 
             $tableSchedule = new tableSchedule();
