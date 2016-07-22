@@ -438,8 +438,7 @@ class Car extends Rest
         for ($day = 0; $day < 5; $day++)
         {
             $week = "星期".$weekarray[$weekNum];
-            $weekNum++;
-            echo $week;
+            $weekNum = $weekNum++%7;
 
             if (0 != $tableSchedule->findByCarTime($carno, $onTime)) {
                 $this->setDesc("carno $carno 在 $onTime 时间点没有车次");
