@@ -434,7 +434,7 @@ class Car extends Rest
         for ($day = 0; $day < 5; $day++)
         {
             $weekarray = array("日", "一", "二", "三", "四", "五", "六");
-//            $week = "星期".$weekarray[date("w", $onDate)];
+            $week = "星期五";
             echo '3333333333 </br>  '.$carno.$onTime.date("w", $onDate);
 
 
@@ -444,7 +444,7 @@ class Car extends Rest
                 return 3;
             }
 
-            echo '444444444444</br>'.$week;
+            echo '444444444444</br>';
             $sno = $tableSchedule->getSno();
 
             $retData[$retNum]['date'] = $onDate;
