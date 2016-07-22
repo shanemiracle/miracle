@@ -400,6 +400,19 @@ class Order extends Rest
 
     }
 
+    public function apipay() {
+
+        $ret = $this->subPay();
+
+        $retdesc = ['retCode'=>$ret,'desc'=>$this->desc];
+
+        $data = array_merge($retdesc,$this->getResponseData());
+
+        return $this->response($data,'json',200);
+
+
+    }
+
     
 //    public function payResult($result) {
 //        $view = new View();

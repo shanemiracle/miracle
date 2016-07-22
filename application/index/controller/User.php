@@ -2,6 +2,7 @@
 namespace app\index\controller;
 use app\index\table\table;
 use app\index\table\tableCar;
+use app\index\table\tableOrder;
 use app\index\table\tableSchedule;
 use app\index\table\tableUser;
 use app\index\table\tableUserOrder;
@@ -336,7 +337,36 @@ class User extends \think\controller\Rest
             return 3;
         }
 
-        $this->setResponseData(['orderlist'=>$tableUserOrder->getOrder()]);
+        $orderNoList = $tableUserOrder->getOrder();
+        $num = count($orderNoList);
+        $retData = array();
+        $acnum = 0;
+
+        $tableOrder = new tableOrder();
+        for($i = 0; $i < $num; $i++) {
+            $orderNo = $orderNoList[$i]['order'];
+            if ( 0 != $tableOrder->find($orderNo) ) {
+                continue;
+            }
+            $retData[$acnum++]['id'] = $orderNoList[$i]['id'];
+            $retData[$acnum++]['order'] = $orderNo;
+            $retData[$acnum++]['carno'] = $tableOrder->getCarno();
+            $retData[$acnum++]['sno'] = $tableOrder->getSno();
+            $retData[$acnum++]['startpos'] = $tableOrder->getStartpos();
+            $retData[$acnum++]['endpos'] = $tableOrder->getEndpos();
+            $retData[$acnum++]['ondate'] = $tableOrder->getOndate();
+
+            $tableSno = new tableSchedule();
+            if( 0 == $tableSno->find($tableOrder->getSno()) ) {
+                $retData[$acnum++]['ontime'] = $tableSno->getTimestart();
+            }
+            
+            $retData[$acnum++]['seatno'] = $tableOrder->getSeatno();
+            $retData[$acnum++]['status'] = $tableOrder->getStatus();
+            $retData[$acnum++]['createtime'] = $tableOrder->getCreatetime();
+        }
+
+        $this->setResponseData(['orderlist'=>$retData]);
 
         $this->setDesc("查询成功");
         return 0;
