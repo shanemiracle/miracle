@@ -433,9 +433,10 @@ class Car extends Rest
 
         for ($day = 0; $day < 5; $day++)
         {
+            echo '333311111</br>';
             $weekarray = array("日", "一", "二", "三", "四", "五", "六");
             $week = "星期五";
-            echo '3333333333 </br>  '.$carno.$onTime.date("w", $onDate);
+            echo '3333333333 </br>'.$carno.$onTime.date("w", $onDate);
 
 
             $tableSchedule = new tableSchedule();
