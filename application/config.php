@@ -148,20 +148,20 @@ return [
     // | 日志设置
     // +----------------------------------------------------------------------
 
-    'log'                    => [
+    'log'                    => array(
         // 日志记录方式，支持 file socket trace sae
-//        'type' => 'File',
+        'type' => 'File',
 //         日志保存目录
-//        'path' => LOG_PATH,
+        'path' => '/home/xiaoj/php.log',
 
 //        'type'=>'trace',//å
 //        "trace_file"=>THINK_PATH.'tpl/page_trace.tpl',
 
-        'type'=>'socket',
-        'host'=>'52.78.62.220',
-        'force_client_ids'=>[],
-        'allow_client_ids'=>['xiaoj'],
-    ],
+//        'type'=>'socket',
+//        'host'=>'52.78.62.220',
+//        'force_client_ids'=>[],
+//        'allow_client_ids'=>['xiaoj'],
+    ),
 //
     // +----------------------------------------------------------------------
     // | 缓存设置
