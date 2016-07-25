@@ -370,7 +370,7 @@ class Order extends Rest
                 table::rollback();
                 return 4;
             }
-            if( 0 != $tableSale->addByIndex($tableOrder->getCarno(),$tableOrder->getOndate(),$seatMult[$i])) {
+            if( 0 != $tableSale->addByIndex($tableOrder->getCarno(),$tableOrder->getCreatetime(),$seatMult[$i])) {
                 $this->setDesc("支付失败:座位 $seatMult[$i] 统计状态更改失败");
                 table::rollback();
                 return 4;
