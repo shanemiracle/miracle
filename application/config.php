@@ -152,7 +152,7 @@ return [
         // 日志记录方式，支持 file socket trace sae
         'type' => 'File',
 //         日志保存目录
-        'path' => '/home/xiaoj/php.log',
+        'path' => LOG_PATH,
 
 //        'type'=>'trace',//å
 //        "trace_file"=>THINK_PATH.'tpl/page_trace.tpl',
