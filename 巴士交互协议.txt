@@ -1,0 +1,268 @@
+方法：get，post
+
+//车辆
+1.新建车辆：http://www.xjmiracle.com/car/add?
+	
+	请求：
+		String cardesc:车牌号描述 如A001, 必须
+		int seatnum:准载人数 如35， 必须
+
+	返回：
+		int retCode: 0-成功，非0-错误
+		String desc: 对retCode的描述
+		String carno: 成功创建的车辆编号 
+
+	例子：
+		请求：http://www.xjmiracle.com/car/add?cardesc=A001&seatnum=35	
+		返回: {"retCode":0,"desc":"创建车辆成功","carno":"1"}
+
+2.添加车次计划：http://www.xjmiracle.com/car/scheduleAdd?
+	请求：
+		String carno: 车辆编号,必须
+		Time starttime: 起始时间 格式：HH:MM:SS， 必须
+		Time endtime:结束时间 格式：HH:MM:SS， 必须
+
+	返回：
+		int retCode: 0-成功，非0-错误
+		String desc: 对retCode的描述
+		String carno: 
+		Time starttime: 
+		Time endtime:
+		String sno;车次编号
+
+	例子：http://www.xjmiracle.com/car/scheduleAdd?carno=1&starttime=7:00:00&endtime=8:00:00
+	返回：{"retCode":0,"desc":"添加记录成功","carno":"1","starttime":"7:00:00","endtime":"8:00:00","sno":"1"}
+
+3.查询车辆订单状态：http://www.xjmiracle.com/car/orderStatus?
+	请求：
+		String carno: 车辆编号, 必须
+		Datetime time: 乘车时间 格式YYYY-MM-DD HH:mm:ss， 可选， 不填采用当前时间
+
+	返回：	
+		int retCode: 0-成功，非0-错误
+		String desc: 对retCode的描述
+		String carno:
+		String sno:车次编号
+		Time onTime:乘坐时间,格式HH：mm:ss
+		String seatStatus:座位状态 格式：座位编号|状态，座位编号|状态... 状态说明：1-可订票，2-下订单后锁定，还支付，3-已支付
+
+	例子：http://www.xjmiracle.com/car/orderStatus?carno=1&time=2016-7-5 07:00:00	
+	返回：{"retCode":0,"desc":"获取状态成功","carno":"1","sno":1,"onTime":"07:00:00","seatStatus":"1|3,2|3,3|1,4|1,5|1,6|1,7|1,8|1,9|1,10|1,11|1,12|1,13|1,14|1,15|1,16|1,17|1,18|1,19|1,20|1,21|1,22|1,23|1,24|1,25|1,26|1,27|1,28|1,29|1,30|1,31|1,32|1,33|1,34|1,35|1"}
+
+4.查询车辆实时乘坐状态：http://www.xjmiracle.com/car/realStatus?
+	请求：
+		String carno:车辆编号
+
+	返回：
+		int retCode: 0-成功，非0-错误
+		String desc: 对retCode的描述
+		String carno:	
+		String realStatus:车辆实时状态 格式：座位|状态， 如1|0，2|0，3|1 状态说明：0-没人坐，1-有人坐
+
+	例子：http://www.xjmiracle.com/car/realStatus?carno=1	
+	返回：{"retCode":0,"desc":"获取成功","carno":"1","realStatus":"1|1,2|1,3|0,4|0,5|0,6|0,7|0,8|0,9|0,10|0,11|0,12|0,13|0,14|0,15|0,16|0,17|0,18|0,19|0,20|0,21|0,22|0,23|0,24|0,25|0,26|0,27|0,28|0,29|0,30|0,31|0,32|0,33|0,34|0,35|0"}
+
+5.车辆实时乘坐状态更改：http://www.xjmiracle.com/car/realStatusUpdate?
+	请求：
+		String carno:车辆编号
+		String status:更改座位及状态 格式：座位|状态， 状态：0-未坐，1-已坐
+
+	返回：
+		int retCode: 0-成功，非0-错误
+		String desc: 对retCode的描述
+		String carno:	
+		String status：		
+
+	例子：http://www.xjmiracle.com/car/realStatusUpdate?carno=1&status=1|1,2|1,3|0
+	返回：{"retCode":0,"desc":"修改状态成功","carno":"1","status":"1|1,2|1,3|0"} 
+
+
+5.查询余票状态：http://www.xjmiracle.com/car/leftTickets?
+	请求：
+		String carno: 车辆编号, 必须
+		Datetime time: 乘车时间 格式YYYY-MM-DD HH:mm:ss， 可选， 不填采用当前时间
+
+	返回：	
+		int retCode: 0-成功，非0-错误
+		String desc: 对retCode的描述
+		String carno:
+		String saleStatus;//jsonList {“date”:”2016-07-22”,”week”:”星期五”，“sale”:”有票”}，{}…
+
+
+6.销售数据查询：http://www.xjmiracle.com/car/saleCount?carno=1&date=2016-07-05
+	请求：
+		String carno;请求车辆 必须
+		Date date：请求日期：YYYY-MM-DD 可选， 不填，默认为当天
+
+	返回：
+		int retCode: 0-成功，非0-错误
+		String desc: 对retCode的描述
+		String carno;
+		Date date：
+		int saleNum：销售座位数
+		String saleCount:销售总额
+
+	例子：http://www.xjmiracle.com/car/saleCount?carno=1&date=2016-07-05	
+	返回：{"retCode":0,"desc":"查询成功","carno":"1","date":"2016-07-05","saleNum":0,"saleCount":"0.00"}
+
+
+
+
+//订单
+1.新建订单：http://www.xjmiracle.com/order/add?
+	方法:get,post
+	请求：
+		String carno: 车辆编号, 必须
+		String startPos: 乘坐起点， 必须
+		String endPos:乘坐重点， 必须
+		Datetime onTime: 乘坐时间 格式：YYYY-MM-DD HH:mm:ss, 可选 。不填表示当前时间乘坐
+		String seatNo:购票座位 格式：1，2，3 逗号隔开 必须
+		int userid:用户id 可选
+
+	返回：	
+		int retCode: 0-成功，非0-错误
+		String desc: 对retCode的描述
+		String carno:
+		String startPos: 
+		String endPos:
+		Datetime onTime:  
+		String seatNo:
+		String orderNo：订单编号
+		String price:价格
+		String codeUrl:付款链接， 用此链接urldecode之后， 生成付款二维码
+
+	例子：http://www.xjmiracle.com/order/add?carno=1&startPos=火车东站&endPos=黄龙公交站&onTime=2016-07-05 7:10:00&seatNo=1,2
+
+	返回：{"retCode":0,"desc":"创建订单成功","carno":"1","startPos":"火车东站","endPos":"黄龙公交站","onTime":"2016-07-05 7:10:00","seatNo":"1,2","orderNo":"54e6f44bc9ae9211b5e922392ef0dcce","price":6,"codeUrl":"http%3A%2F%2Flocalhost%3A8888%2Forder%2FpayGet%3FstartPos%3D%E7%81%AB%E8%BD%A6%E4%B8%9C%E7%AB%99%26endPos%3D%E9%BB%84%E9%BE%99%E5%85%AC%E4%BA%A4%E7%AB%99%26onTime%3D7%3A10%3A00%26onDate%3D2016-07-05%26seatNo%3D1%2C2%26orderNo%3D54e6f44bc9ae9211b5e922392ef0dcce%26price%3D6"}
+
+
+
+2.查询支付状态：http://www.xjmiracle.com/order/payStatus?
+	请求：
+		String orderNo：必须
+	
+	返回：
+		int retCode: 0-成功，非0-错误
+		String desc: 对retCode的描述
+		String orderNo：
+		int status: 订单状态 1-未支付， 2-已支付
+	例子：http://www.xjmiracle.com/order/payStatus?orderNo=961113af075bfc365e909626f57f4af7
+	返回：{"retCode":0,"desc":"订单状态查询成功","orderNo":"961113af075bfc365e909626f57f4af7","status":2}
+
+3.订单详情获取：http://www.xjmiracle.com/order/get?
+	请求：
+		String orderNo：必须
+	
+	返回:
+		int retCode: 0-成功，非0-错误
+		String desc: 对retCode的描述
+		String orderNo：订单编号
+		String carno:
+		String startPos: 
+		String endPos:
+		Datetime onTime:  
+		String seatNo:
+		String sno;车次
+		String status;订单状态 1-未支付， 2-已支付
+4.订单支付：http://www.xjmiracle.com/order/apipay?
+	请求：
+		String orderNo;订单编号
+	返回：
+		int retCode: 0-成功，非0-错误
+		String desc: 对retCode的描述
+
+
+		
+	
+	
+
+//用户
+1.手机号是否注册查询:http://www.xjmiracle.com/user/mobilereg?
+	请求：
+		String mobile：手机号 必须
+	返回：
+		int retCode: 0-成功，非0-错误
+		String desc: 对retCode的描述
+		int regstatus;注册状态 1-注册，0-非注册
+		String mobile;
+		int userid;用户ID
+
+
+2.用户添加: http://www.xjmiracle.com/user/add?
+	请求：
+		String mobile;注册手机号 必须
+		String nickname;昵称 可选 长度不超过20字节
+		String logo;头像 可选 
+		String password;密码 必须 长度不超过64字节，不少于6字节
+		String sex;性别 可选
+		String homeaddr;家庭地址 可选
+		String comaddr;公司地址 可选
+		String worktime;上班时间 可选 HH:mm:ss
+		String offtime;下班时间 可选 HH:mm:ss	
+
+	返回：
+		int retCode: 0-成功，非0-错误
+		String desc: 对retCode的描述
+		String mobile;手机号
+		String password;密码 
+		int userid;注册成功的用户ID
+
+
+3.获取用户信息：http://www.xjmiracle.com/user/get?
+	请求：
+		int userid;用户ID
+		
+	返回：
+		
+		int retCode: 0-成功，非0-错误
+		String desc: 对retCode的描述
+		
+		String mobile;注册手机号 
+		String nickname;昵称 
+		String logo;头像  
+		String sex;性别 
+		String homeaddr;家庭地址 
+		String comaddr;公司地址 
+		String worktime;上班时间 
+		String offtime;下班时间 	
+
+4.修改用户信息：http://www.xjmiracle.com/user/update?
+
+	请求：
+		String userid;用户ID 必须
+		String nickname;昵称 可选 
+		String logo;头像 可选 
+		String sex;性别 可选
+		String homeaddr;家庭地址 可选
+		String comaddr;公司地址 可选
+		String worktime;上班时间 可选 
+		String offtime;下班时间 可选 	
+
+	返回：
+		int retCode: 0-成功，非0-错误
+		String desc: 对retCode的描述
+
+5.获取用户订单：http://www.xjmiracle.com/user/orderget?
+	请求：
+		int orderseq;//订单起始点 可选 如果不填或者为0，表示从最新的订单开始获取
+		int userid;//用户id 
+	
+	返回：
+		int retCode: 0-成功，非0-错误
+		String desc: 对retCode的描述
+		String orderlist;订单编号的json数组
+
+6.用户上传头像：http://www.xjmiracle.com/user/logoUpload?
+	方法：post
+		int userid;//必须
+		String image;//必须 文件标签
+	返回：
+		int retCode: 0-成功，非0-错误
+		String desc: 对retCode的描述
+		int userid:用户ID
+		String logo:头像获取地址
+
+
+		
+
+
