@@ -91,7 +91,6 @@ class tableOrder
 
 
     public function find($orderno) {
-        echo $orderno;
         $data = Db::table($this->tablename)->where('orderno',$orderno)->find();
         if($data) {
             $this->status = $data['status'];

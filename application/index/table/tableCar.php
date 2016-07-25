@@ -50,6 +50,7 @@ class tableCar
     public function del($carno) {
         $result = Db::table($this->tableName)->delete($carno);
         return $result==1?0:1;
+
     }
 
     /**
