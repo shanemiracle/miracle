@@ -71,6 +71,20 @@ class tableCar
         return 1;
     }
 
+	public function findByDesc($desc) {
+       
+        $data = Db::table($this->tableName)->where('cardesc',$desc)->find();
+        if($data) {
+            $this->carno = $data['carno'];
+            $this->cardesc = $data['cardesc'];
+            $this->seatnum = $data['seatnum'];
+
+            return 0;
+        }
+
+
+        return 1;
+    }
     /**
      * bus constructor.
      */

@@ -434,4 +434,43 @@ class User extends \think\controller\Rest
 
         return $this->response($data,'json',200);
     }
+
+
+    public function fileUpload() {
+        $ret = $this->subFileUpload();
+
+        $retDesc = ['retCode'=>$ret,'desc'=>$this->getDesc()];
+
+        $data = array_merge($retDesc,$this->getResponseData());
+
+        return $this->response($data,'json',200);
+    }
+
+    private function subFileUpload()
+    {
+
+        $file = request()->file('image');
+//        print_r( $file->getInfo());
+//        echo '</br>';
+
+//        $info = $file->move(ROOT_PATH.'public'.DS.'logo');
+
+        $info = $file->rule('md5')->move(ROOT_PATH.'public'.DS.'file');
+        if($info) {
+
+            $filename = $info->getFilename();
+            $fatherPath = $info->getPathInfo()->getBasename();
+
+            $logoname = 'http://www.xjmiracle.com/file/'.$fatherPath.'/'.$filename;
+        }
+        else {
+            $this->setDesc("文件保存失败");
+            return 4;
+        }
+
+        $this->setResponseData(['file'=>$logoname]);
+
+        $this->setDesc("文件上传成功");
+        return 0;
+    }
 }

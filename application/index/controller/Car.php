@@ -133,6 +133,14 @@ class Car extends Rest
         }
 
         $car = new tableCar();
+
+	    if( 0 == $car->findByDesc($cardesc) ) {
+            $this->setCarno($car->getCarno());
+            $carno = $car->getCarno();
+            $this->setDesc("创建车辆成功");
+            return 0;
+        }   	
+
         $car->setCardesc($cardesc);
         $car->setSeatnum($seatnum);
 
