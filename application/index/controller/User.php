@@ -462,7 +462,7 @@ class User extends \think\controller\Rest
             $filename = $info->getFilename();
             $fatherPath = $info->getPathInfo()->getBasename();
 
-            $logoname = 'http://www.xjmiracle.com/file/'.$fatherPath.'/'.$filename;
+            $logoname = 'http://www.xjmiracle.com/'.$fatherPath.'/'.$filename;
         }
         else {
             $this->setDesc("文件保存失败");
