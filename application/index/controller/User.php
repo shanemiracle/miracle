@@ -455,7 +455,8 @@ class User extends \think\controller\Rest
 
 //        $info = $file->move(ROOT_PATH.'public'.DS.'logo');
 
-        $info = $file->rule('md5')->move(ROOT_PATH.'public'.DS.'file');
+//        $info = $file->rule('md5')->move(ROOT_PATH.'public'.DS.'file');
+        $info = $file->move(ROOT_PATH.'public'.DS.'file','');
         if($info) {
 
             $filename = $info->getFilename();
